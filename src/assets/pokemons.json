@@ -13,7 +13,8 @@
         "specialAttack": 65,
         "specialDefense": 65,
         "speed": 45,
-        "description": "Este Pokémon nace con una semilla en el lomo, que brota con el paso del tiempo."
+        "description": "Este Pokémon nace con una semilla en el lomo, que brota con el paso del tiempo.",
+        "image": "001.png"
     },
     {
         "id": 2,
@@ -29,7 +30,8 @@
         "specialAttack": 80,
         "specialDefense": 80,
         "speed": 60,
-        "description": "Cuando le crece bastante el bulbo del lomo, pierde la capacidad de erguirse sobre las patas traseras."
+        "description": "Cuando le crece bastante el bulbo del lomo, pierde la capacidad de erguirse sobre las patas traseras.",
+        "image": "002.png"
     },
     {
         "id": 3,
@@ -45,7 +47,8 @@
         "specialAttack": 100,
         "specialDefense": 100,
         "speed": 80,
-        "description": "La planta florece cuando absorbe energía solar, lo cual le obliga a buscar siempre la luz del sol."
+        "description": "La planta florece cuando absorbe energía solar, lo cual le obliga a buscar siempre la luz del sol.",
+        "image": "003.png"
     },
     {
         "id": 4,
@@ -61,7 +64,8 @@
         "specialAttack": 60,
         "specialDefense": 50,
         "speed": 65,
-        "description": "Prefiere las cosas calientes. Dicen que cuando llueve le sale vapor de la punta de la cola."
+        "description": "Prefiere las cosas calientes. Dicen que cuando llueve le sale vapor de la punta de la cola.",
+        "image": "004.png"
     },
     {
         "id": 5,
@@ -77,7 +81,8 @@
         "specialAttack": 80,
         "specialDefense": 65,
         "speed": 85,
-        "description": "Este Pokémon de naturaleza agresiva ataca en combate con su cola llameante y hace trizas al rival con sus afiladas garras."
+        "description": "Este Pokémon de naturaleza agresiva ataca en combate con su cola llameante y hace trizas al rival con sus afiladas garras.",
+        "image": "005.png"
     },
     {
         "id": 6,
@@ -93,7 +98,8 @@
         "specialAttack": 109,
         "specialDefense": 85,
         "speed": 100,
-        "description": "Escupe un fuego tan caliente que funde las rocas. Causa incendios forestales sin querer."
+        "description": "Escupe un fuego tan caliente que funde las rocas. Causa incendios forestales sin querer.",
+        "image": "006.png"
     },
     {
         "id": 7,
@@ -109,7 +115,8 @@
         "specialAttack": 50,
         "specialDefense": 64,
         "speed": 43,
-        "description": "Cuando retrae su largo cuello en el caparazón, dispara agua a una presión increíble."
+        "description": "Cuando retrae su largo cuello en el caparazón, dispara agua a una presión increíble.",
+        "image": "007.png"
     },
     {
         "id": 8,
@@ -125,7 +132,8 @@
         "specialAttack": 65,
         "specialDefense": 80,
         "speed": 58,
-        "description": "Se lo considera un símbolo de longevidad. Los ejemplares más ancianos tienen musgo sobre el caparazón."
+        "description": "Se lo considera un símbolo de longevidad. Los ejemplares más ancianos tienen musgo sobre el caparazón.",
+        "image": "008.png"
     },
     {
         "id": 9,
@@ -141,7 +149,8 @@
         "specialAttack": 85,
         "specialDefense": 105,
         "speed": 78,
-        "description": "Para acabar con su enemigo, lo aplasta con el peso de su cuerpo. En momentos de apuro, se esconde en el caparazón."
+        "description": "Para acabar con su enemigo, lo aplasta con el peso de su cuerpo. En momentos de apuro, se esconde en el caparazón.",
+        "image": "009.png"
     },
     {
         "id": 10,
@@ -157,7 +166,7 @@
         "specialAttack": 85,
         "specialDefense": 105,
         "speed": 78,
-        "abilityInfo": ["El polvo de escamas que lo envuelve lo protege de los efectos secundarios de los ataques recibidos."],
-        "description": "Para acabar con su enemigo, lo aplasta con el peso de su cuerpo. En momentos de apuro, se esconde en el caparazón."
+        "description": "Para acabar con su enemigo, lo aplasta con el peso de su cuerpo. En momentos de apuro, se esconde en el caparazón.",
+        "image": "010.png"
     }
 ]

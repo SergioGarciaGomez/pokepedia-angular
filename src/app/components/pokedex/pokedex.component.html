@@ -1,5 +1,8 @@
-<ul class="heroes">
+<div>
+    <ul class="pokemon">
     <li *ngFor="let p of pokemons">
         <span class="badge">{{ p.id }}</span> {{ p.name }}
+        <img src="../../../assets/images/pokemons/{{ p.image }}">
     </li>
 </ul>
+</div>

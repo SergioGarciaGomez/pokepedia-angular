@@ -13,5 +13,5 @@ export interface Pokemon {
     specialDefense: number;
     speed: number;
     description: string;
-    abilityInfo: string[];
+    image?: string;
 }
