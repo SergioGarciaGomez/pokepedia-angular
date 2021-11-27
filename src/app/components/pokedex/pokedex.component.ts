@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Ability } from 'src/app/interfaces/ability';
 import { Pokemon } from 'src/app/interfaces/pokemon';
 import { AbilityService } from 'src/app/services/ability.service';
@@ -14,7 +15,10 @@ export class PokedexComponent implements OnInit {
   pokemons: Pokemon[] = []
   abilities: Ability[] = []
 
-  constructor(public pokemonService: PokemonService, public abilityService: AbilityService) { }
+  constructor(public pokemonService: PokemonService, 
+              public abilityService: AbilityService, 
+              private router: Router,
+              private activatedRoute: ActivatedRoute) { }
 
   async ngOnInit() {
     // RECUPERA LOS POKEMONS DEL SERVICIO Y LOS GUARDA EN EL COMPONENTE
@@ -23,5 +27,9 @@ export class PokedexComponent implements OnInit {
     // RECUPERA LAS HABILIDADES DEL SERVICIO Y LOS GUARDA EN EL COMPONENTE
     this.abilities = await this.abilityService.getAbilitiesFromJson()
     console.table(this.abilities)
+  }
+
+  goPokemonInfo(id: number) {
+    this.router.navigateByUrl(`/pokedex${id != undefined ? '/' + id : ''}`);
   }
 }

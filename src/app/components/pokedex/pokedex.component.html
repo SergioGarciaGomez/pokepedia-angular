@@ -1,8 +1,14 @@
-<div>
-    <ul class="pokemon">
-    <li *ngFor="let p of pokemons">
-        <span class="badge">{{ p.id }}</span> {{ p.name }}
-        <img src="../../../assets/images/pokemons/{{ p.image }}">
-    </li>
-</ul>
+<div id="container">
+    <ul class="pokemons">
+        <li class="pokemon" *ngFor="let p of pokemons">
+            <img src="../../../assets/images/pokemons/{{ p.image }}">
+            <p id="text" class="id" *ngIf="p.id < 10"> N.º 00{{ p.id }}</p>
+            <p id="text" class="id" *ngIf="p.id > 9 && p.id < 100"> N.º 0{{ p.id }}</p>
+            <p id="text" class="id" *ngIf="p.id > 99"> N.º {{ p.id }}</p>
+            <p id="text" class="name">{{ p.name }}</p>
+            <p id="text" class="type">{{ p.type }}</p>
+            <p id="text" class="type">{{ p.abilityId }}</p>
+        </li>
+        
+    </ul>
 </div>

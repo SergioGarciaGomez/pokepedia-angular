@@ -1,0 +1,36 @@
+@font-face {
+    font-family: flexo;
+    src: url("../../../assets/fonts/Flexo-Medium.ttf");
+}
+
+#container {
+    color: rgb(221, 221, 221);
+}
+
+#text {
+    font-family: flexo;
+    margin: 0 0 10px 10px;
+}
+
+.pokemons {
+}
+
+.pokemon {
+    background-color: rgb(65, 65, 65);
+    float: left;
+    margin: 20px;
+    border-radius: 10px;
+    min-width: 200px;
+    min-height: 100px;
+}
+
+img {
+    width: 13vw;
+    height: 13vw;
+    border-radius: 10px;
+    background-color: rgb(182, 182, 182);
+}
+
+ul {
+    list-style-type: none;
+}

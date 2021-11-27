@@ -1,7 +1,7 @@
 export interface Pokemon {
     id: number;
     name: string;
-    ability: string[];
+    abilityId: number[];
     type: string[];
     weakness: string[];
     heigth: number;
