@@ -1,9 +1,9 @@
 export interface Pokemon {
     id: number;
     name: string;
-    ability: string;
-    type: string;
-    weakness: string;
+    ability: string[];
+    type: string[];
+    weakness: string[];
     heigth: number;
     weigth: number;
     ps: number;
@@ -13,4 +13,5 @@ export interface Pokemon {
     specialDefense: number;
     speed: number;
     description: string;
+    abilityInfo: string[];
 }
