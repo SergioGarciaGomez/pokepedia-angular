@@ -3,21 +3,16 @@
     src: url("../../../assets/fonts/Flexo-Medium.ttf");
 }
 
-#container {
-    color: rgb(221, 221, 221);
-}
-
-#text {
-    font-family: flexo;
-    margin: 0 0 10px 10px;
-}
-
+// PONE A LOS POKEMONS EN TIPO LISTA
 .pokemons {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
 }
 
+// CSS DE CADA CAJITA DE POKÉMONS
 .pokemon {
     background-color: rgb(65, 65, 65);
-    float: left;
     margin: 20px;
     border-radius: 10px;
     min-width: 200px;
@@ -25,12 +20,106 @@
 }
 
 img {
+    cursor: pointer;
     width: 13vw;
     height: 13vw;
     border-radius: 10px;
+    min-width: 200px;
+    min-height: 100px;
     background-color: rgb(182, 182, 182);
 }
 
-ul {
-    list-style-type: none;
+.text {
+    font-family: flexo;
+    padding: 2px;
+    margin: 0 10px 10px 10px;
+    color: rgb(221, 221, 221);
+    text-align: center;
+}
+
+.typeBox {
+    font-family: flexo;
+    padding: 2px;
+    margin: 0 10px 10px 10px;
+    color: white;
+    text-align: center;
+    border-radius: 7px;
+}
+
+#grassType {
+    background-color: rgb(48, 192, 55);
+}
+
+#fireType {
+    background-color: rgb(255, 115, 0);
+}
+
+#waterType {
+    background-color: rgb(48, 162, 255);
+}
+
+#flyingType {
+    background: linear-gradient(rgb(8, 135, 255) 50%, rgb(139, 139, 139) 50%)
+}
+
+#bugType {
+    background-color: rgb(0, 85, 21);
+}
+
+#fightingType {
+    background-color: rgb(54, 29, 0);
+}
+
+#normalType {
+    background-color: rgb(139, 139, 139);
+}
+
+#ghostType {
+    background-color: rgb(94, 0, 138);
+}
+
+#groundType {
+    background: linear-gradient(rgb(229, 255, 0) 50%, #ffd573 50%);
+    color: black;
+}
+
+#steelType {
+    background-color: rgb(46, 46, 46);
+}
+
+#electricType {
+    background-color: rgb(255, 238, 0);
+    color: black;
+}
+
+#psychicType {
+    background-color: rgb(167, 0, 144);
+}
+
+#darkType {
+    background-color: rgb(255, 238, 0);
+    color: black;
+}
+
+#iceType {
+    background-color: rgb(0, 217, 255);
+    color: rgb(42, 42, 42);
+}
+
+#poisonType {
+    background-color: rgb(132, 0, 255);
+}
+
+#rockType {
+    background-color: rgb(0, 217, 255);
+    color: rgb(42, 42, 42);
+}
+
+#dragonType {
+    background: linear-gradient(rgb(0, 92, 179) 50%, #ff4b4b 50%);
+}
+
+#fairyType {
+    background-color: rgb(0, 217, 255);
+
 }

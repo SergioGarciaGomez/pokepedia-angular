@@ -8,14 +8,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { PokedexComponent } from './components/pokedex/pokedex.component';
-import { MenuComponent } from './components/menu/menu.component';
+import { PokemonInfoComponent } from './components/pokemon-info/pokemon-info.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     PokedexComponent,
-    MenuComponent
+    PokemonInfoComponent
   ],
   imports: [
     BrowserModule,

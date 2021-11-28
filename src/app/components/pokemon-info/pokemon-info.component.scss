@@ -1,0 +1,32 @@
+@font-face {
+    font-family: flexo;
+    src: url("../../../assets/fonts/Flexo-Medium.ttf");
+}
+
+#name {
+    font-family: flexo;
+    margin: 0 0 10px 10px;
+    color: rgb(221, 221, 221);
+    text-align: center;
+}
+
+#grid2col {
+    display: grid;
+    grid-template-columns: 40vw 40vw;
+    padding: 10px;
+}
+
+.column {
+    margin: auto;
+}
+
+.column img {
+    width: 30vw;
+    margin-bottom: 40px;
+    opacity: 1;
+    padding: 10px;
+}
+
+p {
+    font-size: 2em;
+}

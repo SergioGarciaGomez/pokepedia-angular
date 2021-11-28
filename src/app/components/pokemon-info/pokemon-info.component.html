@@ -1,0 +1,17 @@
+<div id="container">
+    <p id="name" *ngIf="pokemon.id < 10">{{ pokemon.name }} N.º 00{{ pokemon.id }}</p>
+    <p id="name" *ngIf="pokemon.id > 9 && pokemon.id < 100">{{ pokemon.name }} N.º 0{{ pokemon.id }}</p>
+    <p id="name" *ngIf="pokemon.id > 99">{{ pokemon.name }} N.º {{ pokemon.id }}</p>
+    <div id="grid2col">
+        <div class="column" id="imageAndStats">
+            <img src="../../../assets/images/pokemons/{{pokemon.image}}">
+        </div>
+        <div class="column" id="descriptionAndInfo">
+            <p>{{pokemon.description}}</p>
+        </div>
+        
+    </div>
+    
+</div>
+
+

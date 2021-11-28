@@ -30,6 +30,7 @@ export class PokedexComponent implements OnInit {
   }
 
   goPokemonInfo(id: number) {
+    console.log(this.pokemonService.getPokemon(id))
     this.router.navigateByUrl(`/pokedex${id != undefined ? '/' + id : ''}`);
   }
 }

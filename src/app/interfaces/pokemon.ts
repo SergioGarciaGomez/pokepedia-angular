@@ -1,7 +1,9 @@
+import { Ability } from "./ability";
+
 export interface Pokemon {
     id: number;
     name: string;
-    abilityId: number[];
+    abilityId: string[];
     type: string[];
     weakness: string[];
     heigth: number;
