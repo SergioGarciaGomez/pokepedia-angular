@@ -27,17 +27,26 @@ export class PokemonInfoComponent implements OnInit {
     description: ''
   }
 
-  constructor(private pokemonService: PokemonService, private activatedRoute: ActivatedRoute) { }
+  pokemonAnterior: string = "";
+  pokemonSiguiente: string = "";
+
+  constructor(public pokemonService: PokemonService, private activatedRoute: ActivatedRoute) { 
+  }
 
   async ngOnInit() {
+    
     // EN INICIO, ESPERA A CARGAR EL ARRAY. PARA POR EJEMPLO CUANDO SE ENTRA DIRECTAMENTE DESDE UN ENLACE A
     // ID/5, O CUANDO SE RECARGA LA PÁGINA Y SIGA MOSTRANDO EL CONTENIDO.
-    await this.pokemonService.getPokemonsFromJson()
+    await this.pokemonService.getPokemonsFromJson();
 
     // RECIBE EL ID DEL POKÉMON CLICKADO Y HACE UN GETPOKEMON(ID) PARA RECIBIRLO
     const id = this.activatedRoute.snapshot.paramMap.get('id');
     if (id != null) {
-      this.pokemon = this.pokemonService.getPokemon(+id)// +id lo convierte a number
+      this.pokemon = this.pokemonService.getPokemon(+id);// +id lo convierte a number
     }
+
+    this.pokemonAnterior = this.pokemonService.getPokemon(+this.pokemon.id - 1).name;
+    this.pokemonSiguiente = this.pokemonService.getPokemon(+this.pokemon.id + 1).name;
+
   }
 }

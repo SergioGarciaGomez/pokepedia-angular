@@ -9,13 +9,15 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { PokedexComponent } from './components/pokedex/pokedex.component';
 import { PokemonInfoComponent } from './components/pokemon-info/pokemon-info.component';
+import { ChartBaseStatsComponent } from './components/chart-base-stats/chart-base-stats.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     PokedexComponent,
-    PokemonInfoComponent
+    PokemonInfoComponent,
+    ChartBaseStatsComponent
   ],
   imports: [
     BrowserModule,

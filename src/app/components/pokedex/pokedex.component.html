@@ -5,25 +5,25 @@
         <p id="id" class="text" *ngIf="p.id > 9 && p.id < 100"> N.º 0{{ p.id }}</p>
         <p id="id" class="text" *ngIf="p.id > 99"> N.º {{ p.id }}</p>
         <p id="name" class="text">{{ p.name }}</p>
-        <div *ngFor="let a of p.type">
-            <p id="grassType" class="typeBox" *ngIf="a === 'Planta'">{{a}}</p>
-            <p id="fireType" class="typeBox" *ngIf="a === 'Fuego'">{{a}}</p>
-            <p id="waterType" class="typeBox" *ngIf="a === 'Agua'">{{a}}</p>
-            <p id="flyingType" class="typeBox" *ngIf="a === 'Volador'">{{a}}</p>
-            <p id="bugType" class="typeBox" *ngIf="a === 'Bicho'">{{a}}</p>
-            <p id="fightingType" class="typeBox" *ngIf="a === 'Lucha'">{{a}}</p>
-            <p id="normalType" class="typeBox" *ngIf="a === 'Normal'">{{a}}</p>
-            <p id="ghostType" class="typeBox" *ngIf="a === 'Fantasma'">{{a}}</p>
-            <p id="groundType" class="typeBox" *ngIf="a === 'Tierra'">{{a}}</p>
-            <p id="steelType" class="typeBox" *ngIf="a === 'Acero'">{{a}}</p>
-            <p id="electricType" class="typeBox" *ngIf="a === 'Eléctrico'">{{a}}</p>
-            <p id="psychicType" class="typeBox" *ngIf="a === 'Psíquico'">{{a}}</p>
-            <p id="darkType" class="typeBox" *ngIf="a === 'Siniestro'">{{a}}</p>
-            <p id="iceType" class="typeBox" *ngIf="a === 'Hielo'">{{a}}</p>
-            <p id="poisonType" class="typeBox" *ngIf="a === 'Veneno'">{{a}}</p>
-            <p id="rockType" class="typeBox" *ngIf="a === 'Roca'">{{a}}</p>
-            <p id="dragonType" class="typeBox" *ngIf="a === 'Dragón'">{{a}}</p>
-            <p id="fairyType" class="typeBox" *ngIf="a === 'Hada'">{{a}}</p>
+        <div *ngFor="let t of p.type">
+            <p id="grassType" class="typeBox" *ngIf="t === 'Planta'">{{t}}</p>
+            <p id="fireType" class="typeBox" *ngIf="t === 'Fuego'">{{t}}</p>
+            <p id="waterType" class="typeBox" *ngIf="t === 'Agua'">{{t}}</p>
+            <p id="flyingType" class="typeBox" *ngIf="t === 'Volador'">{{t}}</p>
+            <p id="bugType" class="typeBox" *ngIf="t === 'Bicho'">{{t}}</p>
+            <p id="fightingType" class="typeBox" *ngIf="t === 'Lucha'">{{t}}</p>
+            <p id="normalType" class="typeBox" *ngIf="t === 'Normal'">{{t}}</p>
+            <p id="ghostType" class="typeBox" *ngIf="t === 'Fantasma'">{{t}}</p>
+            <p id="groundType" class="typeBox" *ngIf="t === 'Tierra'">{{t}}</p>
+            <p id="steelType" class="typeBox" *ngIf="t === 'Acero'">{{t}}</p>
+            <p id="electricType" class="typeBox" *ngIf="t === 'Eléctrico'">{{t}}</p>
+            <p id="psychicType" class="typeBox" *ngIf="t === 'Psíquico'">{{t}}</p>
+            <p id="darkType" class="typeBox" *ngIf="t === 'Siniestro'">{{t}}</p>
+            <p id="iceType" class="typeBox" *ngIf="t === 'Hielo'">{{t}}</p>
+            <p id="poisonType" class="typeBox" *ngIf="t === 'Veneno'">{{t}}</p>
+            <p id="rockType" class="typeBox" *ngIf="t === 'Roca'">{{t}}</p>
+            <p id="dragonType" class="typeBox" *ngIf="t === 'Dragón'">{{t}}</p>
+            <p id="fairyType" class="typeBox" *ngIf="t === 'Hada'">{{t}}</p>
         </div>
         
     </li>
