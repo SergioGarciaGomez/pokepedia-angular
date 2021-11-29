@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { Ability } from 'src/app/interfaces/ability';
 import { Pokemon } from 'src/app/interfaces/pokemon';
 import { AbilityService } from 'src/app/services/ability.service';
@@ -17,8 +17,7 @@ export class PokedexComponent implements OnInit {
 
   constructor(public pokemonService: PokemonService, 
               public abilityService: AbilityService, 
-              private router: Router,
-              private activatedRoute: ActivatedRoute) { }
+              private router: Router,) { }
 
   async ngOnInit() {
     // RECUPERA LOS POKEMONS DEL SERVICIO Y LOS GUARDA EN EL COMPONENTE
@@ -32,5 +31,26 @@ export class PokedexComponent implements OnInit {
   goPokemonInfo(id: number) {
     console.log(this.pokemonService.getPokemon(id))
     this.router.navigateByUrl(`/pokedex${id != undefined ? '/' + id : ''}`);
+  }
+
+  goToRandomPokemon() {
+    let id =  Math.floor(Math.random() * this.pokemonService.pokemons.length + 1);
+    this.router.navigateByUrl(`/pokedex${id != undefined ? '/' + id : ''}`);
+  }
+
+  ascIdFilter() {
+    this.pokemonService.ascIdFilter()
+  }
+
+  descIdFilter() {
+    this.pokemonService.descIdFilter()
+  }
+
+  ascNameFilter() {
+    this.pokemonService.ascNameFilter()
+  }
+
+  descNameFilter() {
+    this.pokemonService.descNameFilter()
   }
 }

@@ -1,26 +1,38 @@
 <div id="container">
-    <div id="gridAnteriorSiguiente">
-        <div class="columnAnteriorsiguiente" id="anterior">
-            <p id="text"*ngIf="pokemon.id -1 < 10"> Nº00{{pokemon.id-1}} {{pokemonAnterior}}</p>
-            <p id="text" *ngIf="pokemon.id -1 > 9 && pokemon.id -1 < 100">Nº0{{pokemon.id - 1}} {{pokemonAnterior}}</p>
-            <p id="text"*ngIf="pokemon.id -1 > 99"> Nº{{pokemon.id - 1}} {{pokemonAnterior}}</p> 
+        <!-- "p" es un Pokémon, el pokémon del que se está viendo la información,
+        "pAnterior" es el Pokémon anterior a este, "pSiguiente" es el Pokémon siguiente a este,
+        "pUltimo" es el Pokémon con id más alto de la lista,
+        "pPrimero" es el Pokémon con id más bajo de la lista -->
+    <div id="AnteriorSiguiente">
+        <div class="columnAnteriorSiguiente" id="anterior">
+            <!-- Si el id es == 1, muestra el anterior a él, que sería el último de la lista -->
+            <p id="text" *ngIf="p.id == 1">
+                <span>N.º{{formatId(pUltimo.id)}}</span> {{pUltimo.name}}
+            </p>
+            <p id="text" *ngIf="p.id > 1">
+                <span>N.º{{formatId(pAnterior.id)}}</span> {{pAnterior.name}}
+            </p>
+            
         </div>
-        <div class="columnAnteriorsiguiente" id="siguiente">
-            <p id="text"*ngIf="pokemon.id +1 < 10"> {{pokemonSiguiente}} Nº00{{pokemon.id + 1}}</p>
-            <p id="text" *ngIf="pokemon.id +1 > 9 && pokemon.id +1 < 100">{{pokemonSiguiente}} Nº0{{pokemon.id + 1}}</p>
-            <p id="text"*ngIf="pokemon.id +1 > 99">{{pokemonSiguiente}} Nº{{pokemon.id + 1}}</p> 
+        <div class="columnAnteriorSiguiente" id="siguiente" onclick="goNextPokemon()">
+            <!-- Si el id es == al id de pUltimo, el siguiente Pokémon que muestra es el primero de la lista-->
+            <p id="text" *ngIf="p.id == pUltimo.id"> 
+                {{pPrimero.name}} <span>N.º{{pokemonService.formatId(pPrimero.id)}}</span>
+            </p>
+            <p id="text" *ngIf="pSiguiente.id != 1"> 
+                {{pSiguiente.name}} <span>N.º{{pokemonService.formatId(pSiguiente.id)}}</span>
+            </p>
         </div>  
     </div>
     
-    <p id="name" *ngIf="pokemon.id < 10">{{ pokemon.name }} N.º 00{{ pokemon.id }}</p>
-    <p id="name" *ngIf="pokemon.id > 9 && pokemon.id < 100">{{ pokemon.name }} N.º0{{ pokemon.id }}</p>
-    <p id="name" *ngIf="pokemon.id > 99">{{ pokemon.name }} N.º {{ pokemon.id }}</p>
+    <p id="name">{{ p.name }} N.º{{ pokemonService.formatId(p.id) }}</p>
+    
     <div id="grid2col">
         <div class="column" id="imageAndStats">
-            <img src="../../../assets/images/pokemons/{{pokemon.image}}">
+            <img src="../../../assets/images/pokemons/{{p.image}}">
         </div>
         <div class="column" id="descriptionAndInfo">
-            <p>{{pokemon.description}}</p>
+            <p>{{p.description}}</p>
             <app-chart-base-stats></app-chart-base-stats>
         </div>
     </div>

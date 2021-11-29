@@ -10,25 +10,11 @@ import { PokemonService } from 'src/app/services/pokemon.service';
 })
 export class PokemonInfoComponent implements OnInit {
 
-  pokemon: Pokemon = {
-    id: 0,
-    name: '',
-    abilityId: [],
-    type: [],
-    weakness: [],
-    heigth: 0,
-    weigth: 0,
-    ps: 0,
-    attack: 0,
-    defense: 0,
-    specialAttack: 0,
-    specialDefense: 0,
-    speed: 0,
-    description: ''
-  }
-
-  pokemonAnterior: string = "";
-  pokemonSiguiente: string = "";
+  p!: Pokemon;
+  pAnterior!: Pokemon;
+  pSiguiente!: Pokemon;
+  pPrimero!: Pokemon;
+  pUltimo!: Pokemon;
 
   constructor(public pokemonService: PokemonService, private activatedRoute: ActivatedRoute) { 
   }
@@ -42,11 +28,15 @@ export class PokemonInfoComponent implements OnInit {
     // RECIBE EL ID DEL POKÉMON CLICKADO Y HACE UN GETPOKEMON(ID) PARA RECIBIRLO
     const id = this.activatedRoute.snapshot.paramMap.get('id');
     if (id != null) {
-      this.pokemon = this.pokemonService.getPokemon(+id);// +id lo convierte a number
+      this.p = this.pokemonService.getPokemon(+id);// +id lo convierte a number
+      this.pAnterior = this.pokemonService.getPreviousPokemon(+this.p.id);
+      this.pSiguiente = this.pokemonService.getNextPokemon(+this.p.id);
+      this.pPrimero = this.pokemonService.getFirstPokemon();
+      this.pUltimo = this.pokemonService.getLastPokemon();
     }
+  }
 
-    this.pokemonAnterior = this.pokemonService.getPokemon(+this.pokemon.id - 1).name;
-    this.pokemonSiguiente = this.pokemonService.getPokemon(+this.pokemon.id + 1).name;
-
+  formatId(id: number) {
+    this.pokemonService.formatId(id);
   }
 }

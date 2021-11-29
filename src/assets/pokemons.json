@@ -1018,5 +1018,39 @@
         "speed": 90,
         "description": "Es más ágil en el agua que en la tierra. La espiral de su vientre no es más que parte de sus vísceras que se ven a través de la piel.",
         "image": "060.png"
+    },
+    {
+        "id": 81,
+        "name": "Magnemite",
+        "abilityId": [5, 42],
+        "type" : ["Acero", "Eléctrico"],
+        "weakness": ["Fuego", "Lucha", "Tierra"],
+        "heigth": 0.3,
+        "weigth": 6,
+        "ps": 25,
+        "attack": 35,
+        "defense": 70,
+        "specialAttack": 95,
+        "specialDefense": 55,
+        "speed": 45,
+        "description": "A veces se desploman al suelo tras agotar su suministro eléctrico interno, pero basta una pequeña batería para reanimarlos.",
+        "image": "081.png"
+    },
+    {
+        "id": 113,
+        "name": "Chansey",
+        "abilityId": [30, 32],
+        "type" : ["Normal"],
+        "weakness": ["Lucha"],
+        "heigth": 1.1,
+        "weigth": 34.6,
+        "ps": 250,
+        "attack": 5,
+        "defense": 5,
+        "specialAttack": 35,
+        "specialDefense": 105,
+        "speed": 50,
+        "description": "Los huevos que pone Chansey tienen un valor nutritivo altísimo y un sabor exquisito. Se consideran un manjar.",
+        "image": "113.png"
     }
 ]

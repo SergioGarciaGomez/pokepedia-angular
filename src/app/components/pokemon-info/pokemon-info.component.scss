@@ -3,14 +3,19 @@
     src: url("../../../assets/fonts/Flexo-Medium.ttf");
 }
 
-#gridAnteriorSiguiente {
+#AnteriorSiguiente {
     display: flex;
     justify-content: space-between;
+    margin: 5vh;
     padding: 10px;
 }
 
-#siguiente {
+.columnAnteriorSiguiente {
+    background-color: gray;
+}
 
+span {
+    color: rgb(255, 255, 255);
 }
 
 #text {

@@ -1,27 +1,26 @@
-# PokepediaAngular
+# Pokepedia Angular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.9.
+Este proyecto ha sido generado por [Angular CLI](https://github.com/angular/angular-cli) versión 12.2.9.
 
-## Development server
+## Como usar
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+1. Clone este repositorio
+2. Vaya a la ruta del directorio `cd pokepedia-angular`
+3. Ejecute `npm install -g @angular/cli` si no tiene angular instalado
+4. Ejecute `npm start`
+5. Ejecute `ng serve`
 
-## Code scaffolding
+## Introducción
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Pokepedia vAngular es una aplicación Web pensada solo para resolución horizontal o de pantallas de ordenador.
 
-## Build
+Pokepedia vAngular guarda información sobre los Pokémon que hay, las habilidades, tipos, debilidades, ataques y estadísticas base de cada pokémon
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Versiones
 
-## Running unit tests
+* 1.0 &#8594; Commit inicial con proyecto creado.
+* 1.1 &#8594; Creada la Interfaz Pokémon con todos sus atributos. Creado un array de tipo Pokémon, insertando los datos en el .ts para listarlo con `*ngFor`.
+* 1.2 &#8594; Sustituida la forma de recibir los datos del array. Se ha creado un `Pokemon.json` con los datos de los Pokémon del 1 al 10. Se ha introducido una `promesa` para recibir el array con una función con `async` y `await` y el `http` para leer el archivo `.json`.
+## Para más ayuda
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Use `ng help` en la terminal o revise la página [Angular CLI Overview and Command Reference](https://angular.io/cli).

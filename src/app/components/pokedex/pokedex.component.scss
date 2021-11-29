@@ -3,6 +3,12 @@
     src: url("../../../assets/fonts/Flexo-Medium.ttf");
 }
 
+#RandomAndFilter {
+    display: flex;
+    justify-content: space-between;
+    margin: 50px;
+}
+
 // PONE A LOS POKEMONS EN TIPO LISTA
 .pokemons {
     list-style-type: none;
@@ -32,9 +38,17 @@ img {
 .text {
     font-family: flexo;
     padding: 2px;
-    margin: 0 10px 10px 10px;
+    margin: 0 10px 5px 10px;
     color: rgb(221, 221, 221);
     text-align: center;
+}
+
+#id {
+    border-bottom: 2px solid gray;
+}
+
+#name {
+    font-size: 1.5em;
 }
 
 .typeBox {
@@ -120,6 +134,5 @@ img {
 }
 
 #fairyType {
-    background-color: rgb(0, 217, 255);
-
+    background-color: rgb(255, 161, 227);
 }

@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Chart, registerables } from 'chart.js';
 import { Pokemon } from 'src/app/interfaces/pokemon';
 import { PokemonService } from 'src/app/services/pokemon.service';
-import { PokemonInfoComponent } from '../pokemon-info/pokemon-info.component';
+// Necesario para que el chart.js funcione
 Chart.register(...registerables);
 
 @Component({
@@ -12,22 +12,8 @@ Chart.register(...registerables);
 	styleUrls: [ './chart-base-stats.component.scss' ]
 })
 export class ChartBaseStatsComponent implements OnInit {
-	pokemon: Pokemon = {
-		id: 0,
-		name: '',
-		abilityId: [],
-		type: [],
-		weakness: [],
-		heigth: 0,
-		weigth: 0,
-		ps: 0,
-		attack: 0,
-		defense: 0,
-		specialAttack: 0,
-		specialDefense: 0,
-		speed: 0,
-		description: ''
-	};
+	
+	pokemon!: Pokemon;
 
 	constructor(private pokemonService: PokemonService, private activatedRoute: ActivatedRoute) {}
 
