@@ -1,23 +1,43 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChange, SimpleChanges } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Chart, registerables } from 'chart.js';
+import { generate } from 'rxjs';
 import { Pokemon } from 'src/app/interfaces/pokemon';
 import { PokemonService } from 'src/app/services/pokemon.service';
 // Necesario para que el chart.js funcione
 Chart.register(...registerables);
 
 @Component({
-	selector: 'app-chart-base-stats',
-	templateUrl: './chart-base-stats.component.html',
-	styleUrls: [ './chart-base-stats.component.scss' ]
+	selector: 'app-chart-stats',
+	templateUrl: './chart-stats.component.html',
+	styleUrls: [ './chart-stats.component.scss' ]
 })
-export class ChartBaseStatsComponent implements OnInit {
-	
-	pokemon!: Pokemon;
+export class ChartStatsComponent implements OnChanges {
+	@Input() someInput: any;
+
+	pokemon: Pokemon = {
+		id: 0,
+		name: '',
+		abilityId: [],
+		type: [],
+		weakness: [],
+		heigth: 0,
+		weigth: 0,
+		ps: 0,
+		attack: 0,
+		defense: 0,
+		specialAttack: 0,
+		specialDefense: 0,
+		speed: 0,
+		description: ''
+	};
 
 	constructor(private pokemonService: PokemonService, private activatedRoute: ActivatedRoute) {}
 
-	async ngOnInit() {
+	async ngOnChanges() {
+		// if (changes.someInput && changes.someInput.currentValue) {
+		// 	this.deleteChart();
+		// }
 
 		// EN INICIO, ESPERA A CARGAR EL ARRAY. PARA POR EJEMPLO CUANDO SE ENTRA DIRECTAMENTE DESDE UN ENLACE A
 		// ID/5, O CUANDO SE RECARGA LA PÁGINA Y SIGA MOSTRANDO EL CONTENIDO.
@@ -29,22 +49,16 @@ export class ChartBaseStatsComponent implements OnInit {
 			this.pokemon = this.pokemonService.getPokemon(+id); // +id lo convierte a number
 		}
 
-    // NUMBERS A MOSTRAR EN EL CHART
-    let ps = this.pokemon.ps
-    let attack = this.pokemon.attack
-    let defense = this.pokemon.defense
-    let spAttack = this.pokemon.specialAttack
-    let spDefense = this.pokemon.specialDefense
-    let speed = this.pokemon.speed
+    let { ps, attack, defense, specialAttack, specialDefense, speed } = this.pokemon;
 
-		const myChart = new Chart('myChart', {
+    var myChart = new Chart('myChart', {
 			type: 'bar',
 			data: {
 				labels: [ 'PS', 'Ataque', 'Defensa', 'AtaqueSp', 'DefensaSp', 'Speed' ],
 				datasets: [
 					{
 						label: 'Puntos base',
-						data: [ ps, attack, defense, spAttack, spDefense, speed ],
+						data: [ ps, attack, defense, specialAttack, specialDefense, speed ],
 						backgroundColor: [
 							'rgba(255, 99, 132, 0.2)',
 							'rgba(54, 162, 235, 0.2)',
@@ -61,7 +75,7 @@ export class ChartBaseStatsComponent implements OnInit {
 							'rgba(153, 102, 255, 1)',
 							'rgba(255, 159, 64, 1)'
 						],
-						borderWidth: 1
+						borderWidth: 4
 					}
 				]
 			},
@@ -69,10 +83,10 @@ export class ChartBaseStatsComponent implements OnInit {
 				scales: {
 					y: {
 						beginAtZero: true,
-            max: 255
+						max: 255
 					}
 				}
 			}
 		});
-	}
+	}		
 }

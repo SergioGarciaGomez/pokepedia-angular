@@ -9,7 +9,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { PokedexComponent } from './components/pokedex/pokedex.component';
 import { PokemonInfoComponent } from './components/pokemon-info/pokemon-info.component';
-import { ChartBaseStatsComponent } from './components/chart-base-stats/chart-base-stats.component';
+import { ChartStatsComponent } from './components/pokemon-info/chart-stats/chart-stats.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +17,7 @@ import { ChartBaseStatsComponent } from './components/chart-base-stats/chart-bas
     HomeComponent,
     PokedexComponent,
     PokemonInfoComponent,
-    ChartBaseStatsComponent
+    ChartStatsComponent
   ],
   imports: [
     BrowserModule,

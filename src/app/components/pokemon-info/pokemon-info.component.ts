@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Pokemon } from 'src/app/interfaces/pokemon';
 import { PokemonService } from 'src/app/services/pokemon.service';
 
@@ -10,14 +10,93 @@ import { PokemonService } from 'src/app/services/pokemon.service';
 })
 export class PokemonInfoComponent implements OnInit {
 
-  p!: Pokemon;
-  pAnterior!: Pokemon;
-  pSiguiente!: Pokemon;
-  pPrimero!: Pokemon;
-  pUltimo!: Pokemon;
-
-  constructor(public pokemonService: PokemonService, private activatedRoute: ActivatedRoute) { 
+  p: Pokemon = {
+    id: 0,
+    name: '',
+    abilityId: [],
+    type: [],
+    weakness: [],
+    heigth: 0,
+    weigth: 0,
+    ps: 0,
+    attack: 0,
+    defense: 0,
+    specialAttack: 0,
+    specialDefense: 0,
+    speed: 0,
+    description: ''
   }
+
+  pAnterior: Pokemon = {
+    id: 0,
+    name: '',
+    abilityId: [],
+    type: [],
+    weakness: [],
+    heigth: 0,
+    weigth: 0,
+    ps: 0,
+    attack: 0,
+    defense: 0,
+    specialAttack: 0,
+    specialDefense: 0,
+    speed: 0,
+    description: ''
+  }
+
+  pSiguiente: Pokemon = {
+    id: 0,
+    name: '',
+    abilityId: [],
+    type: [],
+    weakness: [],
+    heigth: 0,
+    weigth: 0,
+    ps: 0,
+    attack: 0,
+    defense: 0,
+    specialAttack: 0,
+    specialDefense: 0,
+    speed: 0,
+    description: ''
+  }
+
+  pPrimero: Pokemon = {
+    id: 0,
+    name: '',
+    abilityId: [],
+    type: [],
+    weakness: [],
+    heigth: 0,
+    weigth: 0,
+    ps: 0,
+    attack: 0,
+    defense: 0,
+    specialAttack: 0,
+    specialDefense: 0,
+    speed: 0,
+    description: ''
+  }
+
+  pUltimo: Pokemon = {
+    id: 0,
+    name: '',
+    abilityId: [],
+    type: [],
+    weakness: [],
+    heigth: 0,
+    weigth: 0,
+    ps: 0,
+    attack: 0,
+    defense: 0,
+    specialAttack: 0,
+    specialDefense: 0,
+    speed: 0,
+    description: ''
+  }
+
+  constructor(public pokemonService: PokemonService, private activatedRoute: ActivatedRoute,
+              private router: Router) {}
 
   async ngOnInit() {
     
@@ -28,15 +107,20 @@ export class PokemonInfoComponent implements OnInit {
     // RECIBE EL ID DEL POKÉMON CLICKADO Y HACE UN GETPOKEMON(ID) PARA RECIBIRLO
     const id = this.activatedRoute.snapshot.paramMap.get('id');
     if (id != null) {
-      this.p = this.pokemonService.getPokemon(+id);// +id lo convierte a number
-      this.pAnterior = this.pokemonService.getPreviousPokemon(+this.p.id);
-      this.pSiguiente = this.pokemonService.getNextPokemon(+this.p.id);
+      this.p = this.pokemonService.getPokemon(+id);
+      this.pAnterior = this.pokemonService.getPreviousPokemon(+id);
+      this.pSiguiente = this.pokemonService.getNextPokemon(+id);
       this.pPrimero = this.pokemonService.getFirstPokemon();
       this.pUltimo = this.pokemonService.getLastPokemon();
     }
   }
 
-  formatId(id: number) {
-    this.pokemonService.formatId(id);
+  formatId(id: number): string {
+    return this.pokemonService.formatId(id)
+  }
+
+  goPokemonInfo(id: number) {
+    this.router.navigateByUrl(`/pokedex/${id != null ? id : ''}`);
+    this.ngOnInit()
   }
 }

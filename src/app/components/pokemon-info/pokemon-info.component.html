@@ -6,26 +6,26 @@
     <div id="AnteriorSiguiente">
         <div class="columnAnteriorSiguiente" id="anterior">
             <!-- Si el id es == 1, muestra el anterior a él, que sería el último de la lista -->
-            <p id="text" *ngIf="p.id == 1">
+            <p id="text" *ngIf="p.id === 1" (click)="goPokemonInfo(pUltimo.id)">
                 <span>N.º{{formatId(pUltimo.id)}}</span> {{pUltimo.name}}
             </p>
-            <p id="text" *ngIf="p.id > 1">
+            <p id="text" *ngIf="p.id > 1" (click)="goPokemonInfo(pAnterior.id)">
                 <span>N.º{{formatId(pAnterior.id)}}</span> {{pAnterior.name}}
             </p>
             
         </div>
-        <div class="columnAnteriorSiguiente" id="siguiente" onclick="goNextPokemon()">
-            <!-- Si el id es == al id de pUltimo, el siguiente Pokémon que muestra es el primero de la lista-->
-            <p id="text" *ngIf="p.id == pUltimo.id"> 
-                {{pPrimero.name}} <span>N.º{{pokemonService.formatId(pPrimero.id)}}</span>
+        <div class="columnAnteriorSiguiente" id="siguiente">
+            <!-- Si este es el último de la lista, el siguiente Pokémon que muestra es el primero de la lista-->
+            <p id="text" *ngIf="p.id == pUltimo.id" (click)="goPokemonInfo(pPrimero.id)"> 
+                {{pPrimero.name}} <span>N.º{{formatId(pPrimero.id)}}</span>
             </p>
-            <p id="text" *ngIf="pSiguiente.id != 1"> 
-                {{pSiguiente.name}} <span>N.º{{pokemonService.formatId(pSiguiente.id)}}</span>
+            <p id="text" *ngIf="p.id != pUltimo.id" (click)="goPokemonInfo(pSiguiente.id)"> 
+                {{pSiguiente.name}} <span>N.º{{formatId(pSiguiente.id)}}</span>
             </p>
         </div>  
     </div>
     
-    <p id="name">{{ p.name }} N.º{{ pokemonService.formatId(p.id) }}</p>
+    <p id="name">{{p.name}} N.º{{formatId(p.id)}}</p>
     
     <div id="grid2col">
         <div class="column" id="imageAndStats">
@@ -33,8 +33,7 @@
         </div>
         <div class="column" id="descriptionAndInfo">
             <p>{{p.description}}</p>
-            <app-chart-base-stats></app-chart-base-stats>
+            <app-chart-stats [someInput]="p.id"></app-chart-stats>
         </div>
     </div>
-    
 </div>

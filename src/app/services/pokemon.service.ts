@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 
 // IMPORT DE MI INTERFAZ POKEMON
 import { Pokemon } from '../interfaces/pokemon';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class PokemonService {
 
   pokemons: Pokemon[] = []
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   // PROMESA QUE ESPERA A LEER EL JSON Y METERLO EN LA VARIABLE POKEMON
   async getPokemonsFromJson() {
@@ -24,17 +25,11 @@ export class PokemonService {
   }
 
   ascIdFilter() {
-    this.pokemons.sort(function (a, b) {
-      return (a.id - b.id)
-    })
-    return this.pokemons
+    return this.pokemons.sort((a, b) => a.id - b.id)
   }
 
   public descIdFilter() {
-    this.pokemons.sort(function (a, b) {
-      return (b.id - a.id)
-    })
-    return this.pokemons
+    return this.pokemons.sort((a, b) => (b.id - a.id))
   }
 
   public ascNameFilter() {
@@ -71,20 +66,20 @@ export class PokemonService {
   // Coge el valor más pequeño dentro del array y devuelve el pokemon con ese Id, para devolver el primero de la
   // lista
   public getFirstPokemon(): Pokemon {
-    let primerId = Math.min.apply(Math, this.pokemons.map(function(o){ return o.id; }))
+    let primerId = Math.min(...this.pokemons.map(function(o){ return o.id; }))
     return this.getPokemon(primerId)
   }
 
   public getLastPokemon(): Pokemon {
-    let ultimoId = Math.max.apply(Math, this.pokemons.map(function(o){ return o.id; }))
+    let ultimoId = Math.max(...this.pokemons.map(function(o){ return o.id; }))
     return this.getPokemon(ultimoId)
   }
 
   public getPreviousPokemon(id: number): Pokemon {
 
     // Obtengo un array de los id
-    let arrayId = this.pokemons.map(array => array.id)
-    var position = 0
+    const arrayId = this.pokemons.map(array => array.id)
+    let position = 0
     
     // En un bucle, si el id es mayor que el id de X posición, significa que aún no hemos llegado a el id
     // del Pokémon que pasamos por parámetro, y eso es lo que queremos, sacar la posición anterior y posterior

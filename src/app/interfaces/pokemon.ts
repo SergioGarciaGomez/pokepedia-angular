@@ -1,5 +1,3 @@
-import { Ability } from "./ability";
-
 export interface Pokemon {
     id: number;
     name: string;

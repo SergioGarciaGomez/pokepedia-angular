@@ -22,14 +22,12 @@ export class PokedexComponent implements OnInit {
   async ngOnInit() {
     // RECUPERA LOS POKEMONS DEL SERVICIO Y LOS GUARDA EN EL COMPONENTE
     this.pokemons = await this.pokemonService.getPokemonsFromJson()
-    console.table(this.pokemons)
+    
     // RECUPERA LAS HABILIDADES DEL SERVICIO Y LOS GUARDA EN EL COMPONENTE
     this.abilities = await this.abilityService.getAbilitiesFromJson()
-    console.table(this.abilities)
   }
 
-  goPokemonInfo(id: number) {
-    console.log(this.pokemonService.getPokemon(id))
+  public goPokemonInfo(id: number) {
     this.router.navigateByUrl(`/pokedex${id != undefined ? '/' + id : ''}`);
   }
 
