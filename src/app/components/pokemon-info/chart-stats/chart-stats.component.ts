@@ -1,7 +1,6 @@
 import { Component, Input, OnChanges, OnInit, SimpleChange, SimpleChanges } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Chart, registerables } from 'chart.js';
-import { generate } from 'rxjs';
 import { Pokemon } from 'src/app/interfaces/pokemon';
 import { PokemonService } from 'src/app/services/pokemon.service';
 // Necesario para que el chart.js funcione
@@ -97,11 +96,27 @@ export class ChartStatsComponent implements OnInit {
 		return totalStatPoints
 	}
 
-	media(): string {
-		var media: number = 0
+	averagePoints(): number {
 		let { ps, attack, defense, specialAttack, specialDefense, speed } = this.pokemon;
-		media = (ps + attack + defense + specialAttack + specialDefense + speed) / 6
-		return media.toFixed(2)
+		var media = (ps + attack + defense + specialAttack + specialDefense + speed) / 6
+		return media
+	}
+
+	// La desviación típica se calcula elevando al cuadrado el dato - media (esto con todos los datos)
+	// y luego dividiendo entre el número de datos totales, y finalmente la raíz cuadrada del resultado
+	typicalDeviation(): number {
+		const { ps, attack, defense, specialAttack, specialDefense, speed } = this.pokemon;
+		// Media, que es necesaria para la desviación
+		const i: number = this.averagePoints()
+		const typicalDeviation = Math.sqrt(
+			(Math.pow(ps - i, 2) + // 91-100 * 2 = -18
+			Math.pow(attack - i, 2) + //134 - 100 * 2 = 68
+			Math.pow(defense - i, 2) + //95 - 100 * 2 = -10
+			Math.pow(specialAttack - i, 2) + //100 - 100 * 2 = 0
+			Math.pow(specialDefense - i, 2) +  // 100 - 100 * 2 = 0
+			Math.pow(speed - i, 2) // 80 - 100 * 2 = -40
+		) / 6)
+		return typicalDeviation
 	}
 
     showTotalPoints() {

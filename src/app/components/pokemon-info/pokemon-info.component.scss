@@ -3,88 +3,85 @@
     src: url("../../../assets/fonts/Flexo-Medium.ttf");
 }
 
+// Container general
 #container {
     width: 70%;
     margin: auto;
     background-color: #525252;
     font-family: flexo;
     padding-bottom: 3rem;
-}
 
-#AnteriorSiguiente {
-    display: flex;
-    justify-content: center;
-    cursor: pointer;
-}
+    // Div con los pokémon anterior y siguiente
+    #AnteriorSiguiente {
+        display: flex;
+        justify-content: center;
+        cursor: pointer;
 
-.columnAnteriorSiguiente {
-    width: 100%;
-    margin: 20px 2px 0 2px;
-    text-align: center;
-    background-color: #A4A4A4;
-    color: #616161;
-    user-select: none;
-}
+        .columnAnteriorSiguiente {
+            width: 100%;
+            margin: 20px 2px 0 2px;
+            text-align: center;
+            background-color: #A4A4A4;
+            color: #616161;
+            user-select: none;
+            &:hover { background-color: #30A7D7; }
+            & div {
+                width: 100%;
+                height: 100%;
+                padding: 30px;
+                font: {
+                    size: 1.5rem; 
+                    weight: bold;
+                }
+                & span {
+                    color: #fff; /* Número de los pókemon anterior y siguiente*/
 
-.columnAnteriorSiguiente:hover {
-    background-color: #30A7D7;
-}
+                }
+                & i {
+                    background-color: #fff;
+                    border-radius: 50%;
+                    font-size: 1.2rem;
+                    color: #616161;
+                    padding: 5px;
+                    margin: 5px;
+                }
+            }
+        }
+    }
 
-// Nombre de los pokemon anterior y siguiente
-.columnAnteriorSiguiente > div {
-    width: 100%;
-    height: 100%;
-    font-size: 1.5rem;
-    font-weight: bold;
-    padding: 30px;
-}
+    // Container de la info del pokémon clickado
+    #pokemonInfo {
+        width: 80%;
+        margin: auto;
+        background-color: #fff;
+        border-radius: 20px;
 
-i {
-    background-color: #fff;
-    border-radius: 50%;
-    font-size: 1.2rem;
-    color: #616161;
-    padding: 5px;
-    margin: 5px;
-}
+        #name {
+            padding-top: 20px;
+            color: #212121;
+            text-align: center;
+            font-size: 2.25rem;
+            & span { color: #636363;}
+        }
 
-// Numero de los pokemon anterior y siguiente
-.columnAnteriorSiguiente > div > span {
-    color: #fff;
-}
+        #grid2col {
+            width: 95%;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1em;
 
-// Container de la info del pokémon clickado
-#pokemonInfo {
-    width: 80%;
-    margin: auto;
-    background-color: #fff;
-    border-radius: 20px;
-}
+            img {
+                width: 100%;
+                height: 50vh;
+                margin-bottom: 40px;
+                border-radius: 10px;
+                background-color: rgb(230, 230, 230);
+            }
 
-#name {
-    padding-top: 20px;
-    color: #212121;
-    text-align: center;
-    font-size: 2.25rem;
-}
-
-#name > span {
-    color: #636363;
-}
-
-#grid2col {
-    width: 95%;
-    margin: auto;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1em;
-}
-
-img {
-    width: 100%;
-    margin-bottom: 40px;
-    padding: 10px;
-    background-color: gray;
-    border-radius: 10px;
-    background-color: rgb(230, 230, 230);
+            #description {
+                font-size: 1.2rem;
+            }
+        }
+    }
 }

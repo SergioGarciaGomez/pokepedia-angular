@@ -1,8 +1,3 @@
-        <!-- "p" es un Pokémon, el pokémon del que se está viendo la información,
-        "pAnterior" es el Pokémon anterior a este, "pSiguiente" es el Pokémon siguiente a este,
-        "pUltimo" es el Pokémon con id más alto de la lista,
-        "pPrimero" es el Pokémon con id más bajo de la lista -->
-
 <div id="container">
     <!-- Botones de Anterior y siguiente de la parte superior -->
     <div id="AnteriorSiguiente">
@@ -42,7 +37,7 @@
                 <app-chart-stats></app-chart-stats>
             </div>
             <div class="column" id="descriptionAndInfo">
-                <div>{{p.description}}</div>
+                <div id="description">{{p.description}}</div>
             </div>
         </div>
     </div>

@@ -1,32 +1,33 @@
 #container {
     width: 85%;
     margin: auto;
-    background-color: red;
-}
+    padding: 3rem;
+    background-color: gray;
 
-#abilitiesTable {
-    width: 70%;
-    margin: auto;
-    background-color: white;
-    font-size: 1.1rem;
-    align-content: center;
-}
 
-.rowUp {
-    padding: 10px;
-    background-color: lightseagreen;
-    color: white;
-}
+    #abilitiesTable {
+        width: 70%;
+        margin: auto;
+        background-color: white;
+        font-size: 1.1rem;
+        align-content: center;
+    
+        table {
+            border-collapse: collapse;
 
-.rowDown {
-    padding: 6px;
-    font-family: Arial, Helvetica, sans-serif;
-}
+            .rowUp {
+                background-color: lightseagreen;
+                color: white;
+            }
+        
+            .rowDown {
+                padding: 20px;
+                font-family: Arial, Helvetica, sans-serif;
 
-.nameColumn {
-    text-align: center;
-}
-
-table {
-    border-collapse: collapse;
+                .nameColumn {
+                    text-align: center;
+                }
+            }    
+        }
+    }
 }

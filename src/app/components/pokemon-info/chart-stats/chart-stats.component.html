@@ -1,16 +1,16 @@
-<p-dialog header="Puntos totales" [(visible)]="displayTotalPoints">Puntos totales</p-dialog>
-<p-dialog header="Media" [(visible)]="displayAverage">Media</p-dialog>
-<p-dialog header="Desviación típica" [(visible)]="displayTypicalDeviation">Desviación típica</p-dialog>
+<p-dialog header="Puntos totales" [(visible)]="displayTotalPoints" [style]="{width: '20vw'}"></p-dialog>
+<p-dialog header="Media" [(visible)]="displayAverage" [style]="{width: '20vw'}">Media</p-dialog>
+<p-dialog header="Desviación típica" [(visible)]="displayTypicalDeviation" [style]="{width: '20vw'}">La desviación típica es una medida para cuantificar la dispersión entre un conjunto de datos.<br><br>Mientras más cerca esté del cero, menos dispersión hay entre los datos, por lo cual más equilibrado es el pokémon </p-dialog>
 
 <div id="container">
     <div>
         <i class="pi pi-info-circle" (click)="showTotalPoints()"></i>Puntos totales: {{ totalStatPoints() }} 
     </div>
     <div>
-        <i class="pi pi-info-circle" (click)="showAverage()"></i>Media: {{ media() }} 
+        <i class="pi pi-info-circle" (click)="showAverage()"></i>Media: {{ averagePoints().toFixed(2) }} 
     </div>
     <div>
-        <i class="pi pi-info-circle" (click)="showTypicalDeviation()"></i>Desviación típica: {{ media() }} 
+        <i class="pi pi-info-circle" (click)="showTypicalDeviation()"></i>Desviación típica: {{ typicalDeviation().toFixed(2) }} 
     </div>
     
     <div id="divChart">

@@ -13,7 +13,7 @@
                 <img width="215" height="215" (click)="goPokemonInfo(p.id)"  src="../../../assets/images/pokemons/{{ p.image }}">
                 <p id="id" class="text" > N.º {{generalService.formatId(p.id)}}</p>
                 <p id="name" class="text">{{ p.name }}</p>
-                <div *ngFor="let t of p.type">
+                <div id="abilities" *ngFor="let t of p.type">
                     <p id="grassType" class="typeBox" *ngIf="t === 'Planta'">{{t}}</p>
                     <p id="fireType" class="typeBox" *ngIf="t === 'Fuego'">{{t}}</p>
                     <p id="waterType" class="typeBox" *ngIf="t === 'Agua'">{{t}}</p>
