@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Pokemon } from 'src/app/interfaces/pokemon';
 import { PokemonService } from 'src/app/services/pokemon.service';
+import { GeneralService } from 'src/app/services/general.service';
 
 @Component({
   selector: 'app-pokemon-info',
@@ -96,7 +97,7 @@ export class PokemonInfoComponent implements OnInit {
   }
 
   constructor(public pokemonService: PokemonService, private activatedRoute: ActivatedRoute,
-              private router: Router) {}
+              private router: Router, public generalService: GeneralService) {}
 
   async ngOnInit() {
     
@@ -116,7 +117,7 @@ export class PokemonInfoComponent implements OnInit {
   }
 
   formatId(id: number): string {
-    return this.pokemonService.formatId(id)
+    return this.generalService.formatId(id)
   }
 
   goPokemonInfo(id: number) {

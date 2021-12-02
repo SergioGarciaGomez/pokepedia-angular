@@ -1,3 +1,19 @@
-<div id="divChart">
-    <canvas id="myChart"></canvas>
+<p-dialog header="Puntos totales" [(visible)]="displayTotalPoints">Puntos totales</p-dialog>
+<p-dialog header="Media" [(visible)]="displayAverage">Media</p-dialog>
+<p-dialog header="Desviación típica" [(visible)]="displayTypicalDeviation">Desviación típica</p-dialog>
+
+<div id="container">
+    <div>
+        <i class="pi pi-info-circle" (click)="showTotalPoints()"></i>Puntos totales: {{ totalStatPoints() }} 
+    </div>
+    <div>
+        <i class="pi pi-info-circle" (click)="showAverage()"></i>Media: {{ media() }} 
+    </div>
+    <div>
+        <i class="pi pi-info-circle" (click)="showTypicalDeviation()"></i>Desviación típica: {{ media() }} 
+    </div>
+    
+    <div id="divChart">
+        <canvas id="myChart"></canvas>
+    </div>
 </div>

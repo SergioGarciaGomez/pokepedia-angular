@@ -1,4 +1,4 @@
-import { Injectable, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 
 // HTTP PARA LEER EL .JSON
 import { HttpClient } from '@angular/common/http';
@@ -117,19 +117,5 @@ export class PokemonService {
     let newId = arrayId[position + 1]
     
     return this.getPokemon(newId)
-  }
-
-  public formatId(id: number): string {
-
-    var idFormatted: string = "";
-
-    if (id < 10) {
-      idFormatted = "00" + id.toString();
-    } else if (id >= 10 && id < 100) {
-      idFormatted = "0" + id.toString();
-    } else {
-      idFormatted = id.toString();
-    }
-    return idFormatted;
   }
 }

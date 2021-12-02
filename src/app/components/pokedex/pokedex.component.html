@@ -1,46 +1,39 @@
-<div id="RandomAndFilter">
-    <div class="column" id="">
-        <p (click)="goToRandomPokemon()">SORPRÉNDEME</p>
-    </div>
-    <div class="column" id="">
-        <p (click)="ascIdFilter()">Filtrar por ID ASCENDENTE</p>
-    </div>
-    <div class="column" id="">
-        <p (click)="descIdFilter()">Filtrar por ID DESCENDENTE</p>
-    </div>  
-    <div class="column" id="">
-        <p (click)="ascNameFilter()">Filtrar A-Z</p>
-    </div>  
-    <div class="column" id="">
-        <p (click)="descNameFilter()">Filtrar Z-A</p>
-    </div>   
-</div>
+<div id="container">
 
-<ul class="pokemons">
-    <li class="pokemon" *ngFor="let p of pokemons">
-        <img (click)="goPokemonInfo(p.id)" src="../../../assets/images/pokemons/{{ p.image }}">
-        <p id="id" class="text" > N.º {{pokemonService.formatId(p.id)}}</p>
-        <p id="name" class="text">{{ p.name }}</p>
-        <div *ngFor="let t of p.type">
-            <p id="grassType" class="typeBox" *ngIf="t === 'Planta'">{{t}}</p>
-            <p id="fireType" class="typeBox" *ngIf="t === 'Fuego'">{{t}}</p>
-            <p id="waterType" class="typeBox" *ngIf="t === 'Agua'">{{t}}</p>
-            <p id="flyingType" class="typeBox" *ngIf="t === 'Volador'">{{t}}</p>
-            <p id="bugType" class="typeBox" *ngIf="t === 'Bicho'">{{t}}</p>
-            <p id="fightingType" class="typeBox" *ngIf="t === 'Lucha'">{{t}}</p>
-            <p id="normalType" class="typeBox" *ngIf="t === 'Normal'">{{t}}</p>
-            <p id="ghostType" class="typeBox" *ngIf="t === 'Fantasma'">{{t}}</p>
-            <p id="groundType" class="typeBox" *ngIf="t === 'Tierra'">{{t}}</p>
-            <p id="steelType" class="typeBox" *ngIf="t === 'Acero'">{{t}}</p>
-            <p id="electricType" class="typeBox" *ngIf="t === 'Eléctrico'">{{t}}</p>
-            <p id="psychicType" class="typeBox" *ngIf="t === 'Psíquico'">{{t}}</p>
-            <p id="darkType" class="typeBox" *ngIf="t === 'Siniestro'">{{t}}</p>
-            <p id="iceType" class="typeBox" *ngIf="t === 'Hielo'">{{t}}</p>
-            <p id="poisonType" class="typeBox" *ngIf="t === 'Veneno'">{{t}}</p>
-            <p id="rockType" class="typeBox" *ngIf="t === 'Roca'">{{t}}</p>
-            <p id="dragonType" class="typeBox" *ngIf="t === 'Dragón'">{{t}}</p>
-            <p id="fairyType" class="typeBox" *ngIf="t === 'Hada'">{{t}}</p>
+    <div id="title">Pokédex</div>
+    
+    <div id="RandomAndFilter">
+        <p-button class="randomButton" label="Sorpréndeme" icon="pi pi-replay" iconPos="left" (click)="goToRandomPokemon()"></p-button>
+        <p-panelMenu class="panel" [transitionOptions]="'200ms'" [model]="items" [style]="{'width':'15vw'}"></p-panelMenu>
+    </div>
+
+    <div id="pokemonsContainer">
+        <div class="pokemons">
+            <div class="pokemon" *ngFor="let p of pokemons">
+                <img width="215" height="215" (click)="goPokemonInfo(p.id)"  src="../../../assets/images/pokemons/{{ p.image }}">
+                <p id="id" class="text" > N.º {{generalService.formatId(p.id)}}</p>
+                <p id="name" class="text">{{ p.name }}</p>
+                <div *ngFor="let t of p.type">
+                    <p id="grassType" class="typeBox" *ngIf="t === 'Planta'">{{t}}</p>
+                    <p id="fireType" class="typeBox" *ngIf="t === 'Fuego'">{{t}}</p>
+                    <p id="waterType" class="typeBox" *ngIf="t === 'Agua'">{{t}}</p>
+                    <p id="flyingType" class="typeBox" *ngIf="t === 'Volador'">{{t}}</p>
+                    <p id="bugType" class="typeBox" *ngIf="t === 'Bicho'">{{t}}</p>
+                    <p id="fightingType" class="typeBox" *ngIf="t === 'Lucha'">{{t}}</p>
+                    <p id="normalType" class="typeBox" *ngIf="t === 'Normal'">{{t}}</p>
+                    <p id="ghostType" class="typeBox" *ngIf="t === 'Fantasma'">{{t}}</p>
+                    <p id="groundType" class="typeBox" *ngIf="t === 'Tierra'">{{t}}</p>
+                    <p id="steelType" class="typeBox" *ngIf="t === 'Acero'">{{t}}</p>
+                    <p id="electricType" class="typeBox" *ngIf="t === 'Eléctrico'">{{t}}</p>
+                    <p id="psychicType" class="typeBox" *ngIf="t === 'Psíquico'">{{t}}</p>
+                    <p id="darkType" class="typeBox" *ngIf="t === 'Siniestro'">{{t}}</p>
+                    <p id="iceType" class="typeBox" *ngIf="t === 'Hielo'">{{t}}</p>
+                    <p id="poisonType" class="typeBox" *ngIf="t === 'Veneno'">{{t}}</p>
+                    <p id="rockType" class="typeBox" *ngIf="t === 'Roca'">{{t}}</p>
+                    <p id="dragonType" class="typeBox" *ngIf="t === 'Dragón'">{{t}}</p>
+                    <p id="fairyType" class="typeBox" *ngIf="t === 'Hada'">{{t}}</p>
+                </div>
+            </div>
         </div>
-        
-    </li>
-</ul>
+    </div>
+</div>

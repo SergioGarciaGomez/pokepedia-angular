@@ -1052,5 +1052,22 @@
         "speed": 50,
         "description": "Los huevos que pone Chansey tienen un valor nutritivo altísimo y un sabor exquisito. Se consideran un manjar.",
         "image": "113.png"
+    },
+    {
+        "id": 149,
+        "name": "Dragonite",
+        "abilityId": [30, 32],
+        "type" : ["Dragón", "Volador"],
+        "weakness": ["Hada", "Dragón", "Hielo", "Roca"],
+        "height": 2.2,
+        "weight": 210,
+        "ps": 91,
+        "attack": 134,
+        "defense": 95,
+        "specialAttack": 100,
+        "specialDefense": 100,
+        "speed": 80,
+        "description": "Un Pokémon bondadoso y compasivo al que le resulta imposible dar la espalda a Pokémon o humanos que se encuentren a la deriva.",
+        "image": "149.png"
     }
 ]

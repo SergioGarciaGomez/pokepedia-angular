@@ -1,0 +1,22 @@
+<div id="container">
+    <div id="abilitiesTable">
+        <table border="1">
+            <thead>
+                <tr class="rowUp">
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="rowDown" *ngFor="let a of abilities">
+                    <td>#{{formatId(a.abilityId)}}</td>
+                    <td class="nameColumn">{{a.abilityName}}</td>
+                    <td class="descColumn">{{a.abilityDescription}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+

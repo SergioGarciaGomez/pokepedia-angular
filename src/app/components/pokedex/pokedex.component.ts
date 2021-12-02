@@ -4,51 +4,83 @@ import { Ability } from 'src/app/interfaces/ability';
 import { Pokemon } from 'src/app/interfaces/pokemon';
 import { AbilityService } from 'src/app/services/ability.service';
 import { PokemonService } from 'src/app/services/pokemon.service';
+import { MenuItem, PrimeIcons } from 'primeng/api';
+import { GeneralService } from 'src/app/services/general.service';
 
 @Component({
-  selector: 'app-pokedex',
-  templateUrl: './pokedex.component.html',
-  styleUrls: ['./pokedex.component.scss']
+	selector: 'app-pokedex',
+	templateUrl: './pokedex.component.html',
+	styleUrls: [ './pokedex.component.scss' ]
 })
 export class PokedexComponent implements OnInit {
 
-  pokemons: Pokemon[] = []
-  abilities: Ability[] = []
+	pokemons: Pokemon[] = [];
+	abilities: Ability[] = [];
+	items: MenuItem[] = [];
 
-  constructor(public pokemonService: PokemonService, 
-              public abilityService: AbilityService, 
-              private router: Router,) { }
+	constructor(public pokemonService: PokemonService, public abilityService: AbilityService, 
+		public generalService: GeneralService, private router: Router) {}
 
-  async ngOnInit() {
-    // RECUPERA LOS POKEMONS DEL SERVICIO Y LOS GUARDA EN EL COMPONENTE
-    this.pokemons = await this.pokemonService.getPokemonsFromJson()
-    
-    // RECUPERA LAS HABILIDADES DEL SERVICIO Y LOS GUARDA EN EL COMPONENTE
-    this.abilities = await this.abilityService.getAbilitiesFromJson()
-  }
+	async ngOnInit() {
 
-  public goPokemonInfo(id: number) {
-    this.router.navigateByUrl(`/pokedex${id != undefined ? '/' + id : ''}`);
-  }
+		// RECUPERA LOS POKEMONS DEL SERVICIO Y LOS GUARDA EN EL COMPONENTE
+		this.pokemons = await this.pokemonService.getPokemonsFromJson();
 
-  goToRandomPokemon() {
-    let id =  Math.floor(Math.random() * this.pokemonService.pokemons.length + 1);
-    this.router.navigateByUrl(`/pokedex${id != undefined ? '/' + id : ''}`);
-  }
+		// RECUPERA LAS HABILIDADES DEL SERVICIO Y LOS GUARDA EN EL COMPONENTE
+		this.abilities = await this.abilityService.getAbilitiesFromJson();
 
-  ascIdFilter() {
-    this.pokemonService.ascIdFilter()
-  }
+		this.items = [
+			{
+				label: 'Ordenar por...',
+				items: [
+					{
+						label: 'Número inferior',
+						icon: PrimeIcons.SORT_NUMERIC_DOWN,
+						command: () => this.ascIdFilter()
+					},
+					{
+						label: 'Número superior',
+						icon: PrimeIcons.SORT_NUMERIC_UP,
+						command: () => this.descIdFilter()
+					},
+					{
+						label: 'A-Z',
+						icon: PrimeIcons.SORT_ALPHA_DOWN,
+						command: () => this.ascNameFilter()
+						
+					},
+					{
+						label: 'Z-A',
+						icon: PrimeIcons.SORT_ALPHA_UP,
+						command: () => this.descNameFilter()
+					}
+				]
+			}
+		];
+	}
 
-  descIdFilter() {
-    this.pokemonService.descIdFilter()
-  }
+	public goPokemonInfo(id: number) {
+		this.router.navigateByUrl(`/pokedex${id != undefined ? '/' + id : ''}`);
+	}
 
-  ascNameFilter() {
-    this.pokemonService.ascNameFilter()
-  }
+	goToRandomPokemon() {
+		let id = Math.floor(Math.random() * this.pokemonService.pokemons.length + 1);
+		this.router.navigateByUrl(`/pokedex${id != undefined ? '/' + id : ''}`);
+	}
 
-  descNameFilter() {
-    this.pokemonService.descNameFilter()
-  }
+	ascIdFilter() {
+		this.pokemonService.ascIdFilter();
+	}
+
+	descIdFilter() {
+		this.pokemonService.descIdFilter();
+	}
+
+	ascNameFilter() {
+		this.pokemonService.ascNameFilter();
+	}
+
+	descNameFilter() {
+		this.pokemonService.descNameFilter();
+	}
 }

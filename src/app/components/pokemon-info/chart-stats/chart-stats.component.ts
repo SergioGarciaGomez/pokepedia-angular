@@ -12,8 +12,11 @@ Chart.register(...registerables);
 	templateUrl: './chart-stats.component.html',
 	styleUrls: [ './chart-stats.component.scss' ]
 })
-export class ChartStatsComponent implements OnChanges {
-	@Input() someInput: any;
+export class ChartStatsComponent implements OnInit {
+
+	displayTotalPoints: boolean = false;
+	displayAverage: boolean = false;
+	displayTypicalDeviation: boolean = false;
 
 	pokemon: Pokemon = {
 		id: 0,
@@ -34,10 +37,7 @@ export class ChartStatsComponent implements OnChanges {
 
 	constructor(private pokemonService: PokemonService, private activatedRoute: ActivatedRoute) {}
 
-	async ngOnChanges() {
-		// if (changes.someInput && changes.someInput.currentValue) {
-		// 	this.deleteChart();
-		// }
+	async ngOnInit() {
 
 		// EN INICIO, ESPERA A CARGAR EL ARRAY. PARA POR EJEMPLO CUANDO SE ENTRA DIRECTAMENTE DESDE UN ENLACE A
 		// ID/5, O CUANDO SE RECARGA LA PÁGINA Y SIGA MOSTRANDO EL CONTENIDO.
@@ -49,9 +49,9 @@ export class ChartStatsComponent implements OnChanges {
 			this.pokemon = this.pokemonService.getPokemon(+id); // +id lo convierte a number
 		}
 
-    let { ps, attack, defense, specialAttack, specialDefense, speed } = this.pokemon;
+		let { ps, attack, defense, specialAttack, specialDefense, speed } = this.pokemon;
 
-    var myChart = new Chart('myChart', {
+		var myChart = new Chart('myChart', {
 			type: 'bar',
 			data: {
 				labels: [ 'PS', 'Ataque', 'Defensa', 'AtaqueSp', 'DefensaSp', 'Speed' ],
@@ -88,5 +88,31 @@ export class ChartStatsComponent implements OnChanges {
 				}
 			}
 		});
-	}		
+	}
+	
+	totalStatPoints(): number {
+		var totalStatPoints: number = 0
+		let { ps, attack, defense, specialAttack, specialDefense, speed } = this.pokemon;
+		totalStatPoints = ps + attack + defense + specialAttack + specialDefense + speed
+		return totalStatPoints
+	}
+
+	media(): string {
+		var media: number = 0
+		let { ps, attack, defense, specialAttack, specialDefense, speed } = this.pokemon;
+		media = (ps + attack + defense + specialAttack + specialDefense + speed) / 6
+		return media.toFixed(2)
+	}
+
+    showTotalPoints() {
+        this.displayTotalPoints = true
+    }
+
+	showAverage() {
+        this.displayAverage = true
+    }
+
+	showTypicalDeviation() {
+        this.displayTypicalDeviation = true
+    }
 }

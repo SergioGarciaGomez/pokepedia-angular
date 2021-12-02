@@ -1,37 +1,54 @@
-body {
-    background-color: red;
-}
-
 nav {
     z-index: 99;
-    position: fixed;
-    top: 0;
-    margin-bottom: 20px;
-    width: 50%;
-    background-color: yellow;
+    width:100%;
+    background-color: white;
 }
 
 .topnav {
+    display: flex;
+    justify-content: center;
     overflow: hidden;
+    border-bottom: solid 2px lightgray;
 }
 
 .topnav a {
-    display: block;
-    float: left;
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-family: Roboto;
+    color: #464646;
     padding: 10px 18px;
     text-align: center;
     text-decoration: none;
-    font-size: 1em;
-    font-weight: bold;
-    font-family: navbar;
-    color: #905BEC;
+    width: 8%;
 }
 
 .topnav a:hover {
-    background-color: #393974;
     color: white;
 }
 
-.navbar {
-    margin: 0
+.home {
+    background-color: white;
+    border-bottom: solid 5px #464646;
+}
+
+.home:hover {
+    background-color: #464646;
+}
+
+.pokedex {
+    background-color: white;
+    border-bottom: solid 5px red;
+}
+
+.pokedex:hover {
+    background-color: red;
+}
+
+.habilidades {
+    background-color: white;
+    border-bottom: solid 5px #30A7D7;
+}
+
+.habilidades:hover {
+    background-color: #30A7D7;
 }

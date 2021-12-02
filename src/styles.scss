@@ -4,26 +4,38 @@
   box-sizing: border-box;
 }
 
+:where(:not(:defined)) {
+  display: block;
+}
+
+:root {
+  color: #000;
+}
+
 html, body {
-  display: flow-root;
   width: 100vw;
   height: 100vh;
   margin: 0;
   padding: 0;
   overflow: hidden;
+  background-image: url('./assets/images/pokemon_background_pattern.png');
+  background-size: cover;
 }
 
 app-root {
-  display: flow-root;
+  display: flex;
+  flex-direction: column;
   width: 100%;
   height: 100%;
   overflow: auto;
 }
 
-app-pokedex {
-  display: block;
+app-pokedex, app-pokemon-info, app-habilidades {
   width: 100%;
   height: 100%;
-  padding: 1rem;
   overflow: auto;
+}
+
+img {
+  -webkit-user-drag: none;
 }

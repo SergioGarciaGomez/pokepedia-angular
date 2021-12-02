@@ -3,40 +3,76 @@
     src: url("../../../assets/fonts/Flexo-Medium.ttf");
 }
 
-#RandomAndFilter {
-    display: flex;
-    justify-content: space-between;
-    margin: 50px;
+// Container general
+#container {
+    width: 70%;
+    margin: auto;
+    padding-bottom: 3rem;
+    font-family: flexo;
+    background-color: rgb(82, 82, 82);
 }
+
+#title {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 20px;
+    font-size: 3rem;
+    background-color: #fff;
+    color: rgb(92, 92, 92);
+}
+
+#RandomAndFilter {
+    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #313131;
+    height: 15vh;
+}
+
+.randomButton {
+    align-self: center;
+}
+
+.panel {
+    margin-top: 40px;
+}
+
+#pokemonsContainer {
+    width: 85%;
+    margin: auto;
+    background-color: #fff;
+    border-radius: 20px;
+    margin: 0 50 0 50;
+}
+
 
 // PONE A LOS POKEMONS EN TIPO LISTA
 .pokemons {
-    list-style-type: none;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 15px 0 15px;
 }
+
+
 
 // CSS DE CADA CAJITA DE POKÉMONS
 .pokemon {
-    background-color: rgb(65, 65, 65);
-    margin: 20px;
-    border-radius: 10px;
-    min-width: 200px;
-    min-height: 100px;
+    background-color: rgb(92, 92, 92);
+    border-radius: 15px;
+    margin: 20px 15px 5px 15px;
 }
 
 img {
     cursor: pointer;
-    width: 13vw;
-    height: 13vw;
     border-radius: 10px;
-    min-width: 200px;
+    min-width: 100px;
     min-height: 100px;
-    background-color: rgb(182, 182, 182);
+    background-color: rgb(230, 230, 230);
 }
 
 .text {
-    font-family: flexo;
     padding: 2px;
     margin: 0 10px 5px 10px;
     color: rgb(221, 221, 221);
@@ -55,11 +91,13 @@ img {
     font-family: flexo;
     padding: 2px;
     margin: 0 10px 10px 10px;
-    color: white;
+    color: #fff;
     text-align: center;
     border-radius: 7px;
 }
 
+
+// COLORES EN FUNCIÓN DEL TIPO DEL POKÉMON
 #grassType {
     background-color: rgb(48, 192, 55);
 }

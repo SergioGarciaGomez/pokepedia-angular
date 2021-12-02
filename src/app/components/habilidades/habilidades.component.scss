@@ -1,0 +1,32 @@
+#container {
+    width: 85%;
+    margin: auto;
+    background-color: red;
+}
+
+#abilitiesTable {
+    width: 70%;
+    margin: auto;
+    background-color: white;
+    font-size: 1.1rem;
+    align-content: center;
+}
+
+.rowUp {
+    padding: 10px;
+    background-color: lightseagreen;
+    color: white;
+}
+
+.rowDown {
+    padding: 6px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.nameColumn {
+    text-align: center;
+}
+
+table {
+    border-collapse: collapse;
+}
