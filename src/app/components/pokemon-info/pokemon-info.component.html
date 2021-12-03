@@ -3,24 +3,24 @@
     <div id="AnteriorSiguiente">
         <div class="columnAnteriorSiguiente" id="anterior">
             <!-- Si el id es == 1, muestra el anterior a él, que sería el último de la lista -->
-            <div *ngIf="p.id === 1" (click)="goPokemonInfo(pUltimo.id)">
+            <div *ngIf="pokemon.id === 1" (click)="goPokemonInfo(pUltimo.id)">
                 <i class="pi pi-angle-left"></i>
-                <span>N.º{{formatId(pUltimo.id)}}</span> {{pUltimo.name}}
+                <span>N.º{{ formatId(pUltimo.id) }}</span> {{ pUltimo.name }}
             </div>
-            <div *ngIf="p.id > 1" (click)="goPokemonInfo(pAnterior.id)">
+            <div *ngIf="pokemon.id > 1" (click)="goPokemonInfo(pAnterior.id)">
                 <i class="pi pi-angle-left"></i>
-                <span>N.º{{formatId(pAnterior.id)}}</span> {{pAnterior.name}}
+                <span>N.º{{ formatId(pAnterior.id) }}</span> {{ pAnterior.name }}
             </div>
             
         </div>
         <div class="columnAnteriorSiguiente" id="siguiente">
             <!-- Si este es el último de la lista, el siguiente Pokémon que muestra es el primero de la lista-->
-            <div *ngIf="p.id == pUltimo.id" (click)="goPokemonInfo(pPrimero.id)"> 
-                {{pPrimero.name}} <span>N.º{{formatId(pPrimero.id)}}</span>
+            <div *ngIf="pokemon.id == pUltimo.id" (click)="goPokemonInfo(pPrimero.id)"> 
+                {{ pPrimero.name }} <span>N.º{{ formatId(pPrimero.id) }}</span>
                 <i class="pi pi-angle-right"></i>
             </div>
-            <div *ngIf="p.id != pUltimo.id" (click)="goPokemonInfo(pSiguiente.id)"> 
-                {{pSiguiente.name}} <span>N.º{{formatId(pSiguiente.id)}}</span>
+            <div *ngIf="pokemon.id != pUltimo.id" (click)="goPokemonInfo(pSiguiente.id)"> 
+                {{ pSiguiente.name }} <span>N.º{{ formatId(pSiguiente.id) }}</span>
                 <i class="pi pi-angle-right"></i>
             </div>
         </div>  
@@ -29,15 +29,18 @@
     <!-- Resto de info de la pantalla -->
     <div id="pokemonInfo">
 
-        <p id="name">{{p.name}} <span>N.º{{formatId(p.id)}}</span> </p>
+        <p id="name">{{ pokemon.name }} <span>N.º{{ formatId(pokemon.id) }}</span> </p>
     
         <div id="grid2col">
             <div class="column" id="imageAndStats">
-                <img  src="../../../assets/images/pokemons/{{p.image}}">
-                <app-chart-stats></app-chart-stats>
+                <img  src="../../../assets/images/pokemons/{{pokemon.image}}">
+                <app-chart-stats
+                [pokemon]="pokemon">
+                </app-chart-stats>
             </div>
             <div class="column" id="descriptionAndInfo">
-                <div id="description">{{p.description}}</div>
+                <div>{{pokemon | json}}</div>
+                <div id="description">{{ pokemon.description }}</div>
             </div>
         </div>
     </div>

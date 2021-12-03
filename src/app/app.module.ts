@@ -19,6 +19,7 @@ import { HabilidadesComponent } from './components/habilidades/habilidades.compo
 import { DialogModule } from 'primeng/dialog';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,

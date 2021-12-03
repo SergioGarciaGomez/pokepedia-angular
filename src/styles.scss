@@ -39,3 +39,14 @@ app-pokedex, app-pokemon-info, app-habilidades {
 img {
   -webkit-user-drag: none;
 }
+
+// Panel Menu
+.p-toggleable-content {
+  position: absolute;
+  width: 100%;
+}
+
+// Exclamación
+.pi.pi-question {
+  font-weight: bold;
+}

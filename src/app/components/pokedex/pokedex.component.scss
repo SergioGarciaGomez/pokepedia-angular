@@ -10,174 +10,139 @@
     padding-bottom: 3rem;
     font-family: flexo;
     background-color: rgb(82, 82, 82);
-}
 
-#title {
-    width: 100%;
-    height: auto;
-    margin: 0;
-    padding: 20px;
-    font-size: 3rem;
-    background-color: #fff;
-    color: rgb(92, 92, 92);
-}
-
-#RandomAndFilter {
-    position: relative;
-    display: flex;
-    justify-content: space-evenly;
-    background-color: #313131;
-    height: 15vh;
-    
-}
-
-.randomButton {
-    align-self: center;
-}
-
-.panel {
-    margin-top: 30px;   
-}
-
-#pokemonsContainer {
-    width: 85%;
-    margin: auto;
-    background-color: #fff;
-    border-radius: 20px;
-    margin: 0 50 0 50;
-}
-
-// PONE A LOS POKEMONS EN TIPO LISTA
-.pokemons {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 10px 15px 0 15px;
-}
-
-
-
-// CSS DE CADA CAJITA DE POKÉMONS
-.pokemon {
-    background-color: rgb(92, 92, 92);
-    border-radius: 15px;
-    margin: 20px 15px 5px 15px;
-}
-
-img {
-    cursor: pointer;
-    border-radius: 10px;
-    min-width: 100px;
-    min-height: 100px;
-    background-color: rgb(230, 230, 230);
-}
-
-.text {
-    padding: 2px;
-    margin: 0 10px 5px 10px;
-    color: rgb(221, 221, 221);
-    text-align: center;
-}
-
-#id {
-    border-bottom: 2px solid gray;
-}
-
-#name {
-    font-size: 1.5em;
-}
-
-// Caja general de las habilidades del Pokémon
-#abilities {
-    font-family: Arial;
-    font-weight: bold;
-
-    // Cajita única de la habilidad
-    .typeBox {
-        padding: 2px;
-        margin: 0 10px 10px 10px;
-        color: #fff;
-        text-align: center;
-        border-radius: 7px;
+    #title {
+        width: 100%;
+        margin: 0;
+        padding: 20px;
+        font-size: 3rem;
+        background-color: #fff;
+        color: rgb(92, 92, 92);
     }
-}
 
+    #RandomAndFilter {
+        display: flex;
+        justify-content: space-evenly;
+        background-color: #313131;
+        align-items: center;
+        padding: 0.5em;
+        font-weight: bold;
 
-// COLORES EN FUNCIÓN DEL TIPO DEL POKÉMON
-#grassType {
-    background-color: rgb(48, 192, 55);
-}
+        .panel {
+            position: relative;
+        }        
+    }
 
-#fireType {
-    background-color: rgb(255, 115, 0);
-}
+    #pokemonsContainer {
+        width: 85%;
+        margin: auto;
+        background-color: #fff;
+        border-radius: 20px;
+        margin: 0 50 0 50;
 
-#waterType {
-    background-color: rgb(48, 162, 255);
-}
+        // Pone a los Pokémon en tipo lista
+        .pokemons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 10px 15px 0 15px;
+            
+            // CSS de cada cajita Pokémon
+            .pokemon {
+                background-color: rgb(92, 92, 92);
+                border-radius: 15px;
+                margin: 20px 15px 5px 15px;
 
-#flyingType {
-    background: linear-gradient(rgb(8, 135, 255) 50%, rgb(139, 139, 139) 50%)
-}
+                img {
+                    cursor: pointer;
+                    border-radius: 10px;
+                    min-width: 100px;
+                    min-height: 100px;
+                    background-color: rgb(230, 230, 230);
+                }
 
-#bugType {
-    background-color: rgb(0, 85, 21);
-}
+                .text {
+                    padding: 2px;
+                    margin: 0 10px 5px 10px;
+                    color: rgb(221, 221, 221);
+                    text-align: center;
+                }
 
-#fightingType {
-    background-color: rgb(54, 29, 0);
-}
+                #id {
+                    border-bottom: 2px solid gray;
+                }
+                
+                #name {
+                    font-size: 1.5em;
+                }
 
-#normalType {
-    background-color: rgb(139, 139, 139);
-}
+                // Caja general de las habilidades del Pokémon
+                #abilities {
+                    font-family: Arial;
+                    font-weight: bold;
 
-#ghostType {
-    background-color: rgb(94, 0, 138);
-}
+                     // Cajita única de la habilidad
+                    .typeBox {
+                        padding: 2px;
+                        margin: 0 10px 10px 10px;
+                        color: #fff;
+                        text-align: center;
+                        border-radius: 7px;
+                    }
 
-#groundType {
-    background: linear-gradient(rgb(229, 255, 0) 50%, #ffd573 50%);
-    color: black;
-}
+                    // COLORES EN FUNCIÓN DEL TIPO DEL POKÉMON
+                    #grassType { background-color: rgb(48, 192, 55); }
 
-#steelType {
-    background-color: rgb(46, 46, 46);
-}
+                    #fireType { background-color: rgb(255, 115, 0); }
 
-#electricType {
-    background-color: rgb(255, 238, 0);
-    color: black;
-}
+                    #waterType { background-color: rgb(48, 162, 255); }
 
-#psychicType {
-    background-color: rgb(167, 0, 144);
-}
+                    #bugType { background-color: rgb(0, 85, 21); }
 
-#darkType {
-    background-color: rgb(255, 238, 0);
-    color: black;
-}
+                    #fightingType { background-color: rgb(54, 29, 0); }
 
-#iceType {
-    background-color: rgb(0, 217, 255);
-    color: black;
-}
+                    #normalType { background-color: rgb(139, 139, 139); }
 
-#poisonType {
-    background-color: rgb(132, 0, 255);
-    color: black;
-}
+                    #ghostType { background-color: rgb(94, 0, 138); }
 
-#rockType {
-    background-color: rgb(0, 217, 255);
-    color: black;
-}
+                    #steelType { background-color: rgb(46, 46, 46); }
 
-#dragonType {
-    background: linear-gradient(rgb(0, 92, 179) 50%, #ff4b4b 50%);
-}
+                    #psychicType { background-color: rgb(167, 0, 144); }
 
-#fairyType {
-    background-color: rgb(255, 161, 227);
+                    #fairyType { background-color: rgb(255, 161, 227); }
+
+                    #dragonType { background: linear-gradient(rgb(0, 92, 179) 50%, #ff4b4b 50%); }
+
+                    #flyingType { background: linear-gradient(rgb(8, 135, 255) 50%, rgb(139, 139, 139) 50%) }
+
+                    #poisonType { background-color: rgb(154, 45, 255);}
+
+                    #electricType {
+                        background-color: rgb(255, 238, 0);
+                        color: black;
+                    }
+
+                    #groundType {
+                        background: linear-gradient(rgb(229, 255, 0) 50%, #ffd573 50%);
+                        color: black;
+                    }
+
+                    #darkType {
+                        background-color: rgb(255, 238, 0);
+                        color: black;
+                    }
+
+                    #iceType {
+                        background-color: rgb(0, 217, 255);
+                        color: black;
+                    }
+
+                    #rockType {
+                        background-color: rgb(0, 217, 255);
+                        color: black;
+                    }
+                }
+            }
+        }
+    }
 }

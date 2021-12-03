@@ -1,5 +1,5 @@
-import { Component, Input, OnChanges, OnInit, SimpleChange, SimpleChanges } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Chart, registerables } from 'chart.js';
 import { Pokemon } from 'src/app/interfaces/pokemon';
 import { PokemonService } from 'src/app/services/pokemon.service';
@@ -11,13 +11,12 @@ Chart.register(...registerables);
 	templateUrl: './chart-stats.component.html',
 	styleUrls: [ './chart-stats.component.scss' ]
 })
-export class ChartStatsComponent implements OnInit {
+export class ChartStatsComponent implements OnChanges {
 
 	displayTotalPoints: boolean = false;
 	displayAverage: boolean = false;
 	displayTypicalDeviation: boolean = false;
-
-	pokemon: Pokemon = {
+	@Input() pokemon: Pokemon = {
 		id: 0,
 		name: '',
 		abilityId: [],
@@ -34,23 +33,33 @@ export class ChartStatsComponent implements OnInit {
 		description: ''
 	};
 
-	constructor(private pokemonService: PokemonService, private activatedRoute: ActivatedRoute) {}
 
-	async ngOnInit() {
+	// pokemon: Pokemon = {
+	// 	id: 0,
+	// 	name: '',
+	// 	abilityId: [],
+	// 	type: [],
+	// 	weakness: [],
+	// 	heigth: 0,
+	// 	weigth: 0,
+	// 	ps: 0,
+	// 	attack: 0,
+	// 	defense: 0,
+	// 	specialAttack: 0,
+	// 	specialDefense: 0,
+	// 	speed: 0,
+	// 	description: ''
+	// };
 
-		// EN INICIO, ESPERA A CARGAR EL ARRAY. PARA POR EJEMPLO CUANDO SE ENTRA DIRECTAMENTE DESDE UN ENLACE A
-		// ID/5, O CUANDO SE RECARGA LA PÁGINA Y SIGA MOSTRANDO EL CONTENIDO.
-		await this.pokemonService.getPokemonsFromJson();
 
-		// RECIBE EL ID DEL POKÉMON CLICKADO Y HACE UN GETPOKEMON(ID) PARA RECIBIRLO
-		const id = this.activatedRoute.snapshot.paramMap.get('id');
-		if (id != null) {
-			this.pokemon = this.pokemonService.getPokemon(+id); // +id lo convierte a number
-		}
 
-		let { ps, attack, defense, specialAttack, specialDefense, speed } = this.pokemon;
+	constructor(private pokemonService: PokemonService, private activatedRoute: ActivatedRoute, router: Router) {}
 
-		var myChart = new Chart('myChart', {
+	ngOnChanges(changes: SimpleChanges) {
+
+		let { ps, attack, defense, specialAttack, specialDefense, speed } = this.pokemon
+
+		let myChart = new Chart('myChart', {
 			type: 'bar',
 			data: {
 				labels: [ 'PS', 'Ataque', 'Defensa', 'AtaqueSp', 'DefensaSp', 'Speed' ],
@@ -88,6 +97,10 @@ export class ChartStatsComponent implements OnInit {
 			}
 		});
 	}
+
+	
+
+
 	
 	totalStatPoints(): number {
 		var totalStatPoints: number = 0

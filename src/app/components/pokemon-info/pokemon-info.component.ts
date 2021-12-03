@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Pokemon } from 'src/app/interfaces/pokemon';
 import { PokemonService } from 'src/app/services/pokemon.service';
@@ -11,7 +11,7 @@ import { GeneralService } from 'src/app/services/general.service';
 })
 export class PokemonInfoComponent implements OnInit {
 
-  p: Pokemon = {
+  pokemon: Pokemon = {
     id: 0,
     name: '',
     abilityId: [],
@@ -96,8 +96,13 @@ export class PokemonInfoComponent implements OnInit {
     description: ''
   }
 
-  constructor(public pokemonService: PokemonService, private activatedRoute: ActivatedRoute,
-              private router: Router, public generalService: GeneralService) {}
+  constructor(
+    public pokemonService: PokemonService,
+    private activatedRoute: ActivatedRoute,
+    private router: Router,
+    public generalService: GeneralService
+  ) {}
+
 
   async ngOnInit() {
     
@@ -105,10 +110,12 @@ export class PokemonInfoComponent implements OnInit {
     // ID/5, O CUANDO SE RECARGA LA PÁGINA Y SIGA MOSTRANDO EL CONTENIDO.
     await this.pokemonService.getPokemonsFromJson();
 
+
+
     // RECIBE EL ID DEL POKÉMON CLICKADO Y HACE UN GETPOKEMON(ID) PARA RECIBIRLO
     const id = this.activatedRoute.snapshot.paramMap.get('id');
     if (id != null) {
-      this.p = this.pokemonService.getPokemon(+id);
+      this.pokemon = this.pokemonService.getPokemon(+id);
       this.pAnterior = this.pokemonService.getPreviousPokemon(+id);
       this.pSiguiente = this.pokemonService.getNextPokemon(+id);
       this.pPrimero = this.pokemonService.getFirstPokemon();

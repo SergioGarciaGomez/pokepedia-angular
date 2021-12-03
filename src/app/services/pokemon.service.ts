@@ -3,9 +3,12 @@ import { Injectable } from '@angular/core';
 // HTTP PARA LEER EL .JSON
 import { HttpClient } from '@angular/common/http';
 
-// IMPORT DE MI INTERFAZ POKEMON
 import { Pokemon } from '../interfaces/pokemon';
 import { Router } from '@angular/router';
+
+import { Chart, registerables } from 'chart.js';
+// Necesario para que el chart.js funcione
+Chart.register(...registerables);
 
 @Injectable({
   providedIn: 'root'
