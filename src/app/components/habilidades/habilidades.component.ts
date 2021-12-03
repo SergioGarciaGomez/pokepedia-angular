@@ -23,7 +23,5 @@ export class HabilidadesComponent implements OnInit {
 	formatId(id: number): string {
     return this.generalService.formatId(id)
 	}
-
-	esImpar(id: number) { return id % 2}
 }
 
