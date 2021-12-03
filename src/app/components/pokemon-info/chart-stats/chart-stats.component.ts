@@ -1,9 +1,6 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, Input, OnChanges } from '@angular/core';
 import { Chart, registerables } from 'chart.js';
 import { Pokemon } from 'src/app/interfaces/pokemon';
-import { PokemonService } from 'src/app/services/pokemon.service';
-// Necesario para que el chart.js funcione
 Chart.register(...registerables);
 
 @Component({
@@ -13,9 +10,15 @@ Chart.register(...registerables);
 })
 export class ChartStatsComponent implements OnChanges {
 
+	// Variables definidas como falses para activar un evento en un determinado momento
 	displayTotalPoints: boolean = false;
 	displayAverage: boolean = false;
 	displayTypicalDeviation: boolean = false;
+
+	// Chart undefined para no tener que inicializarlo
+	myChart: Chart | undefined;
+
+	// Objeto pokémon recibido de la clase padre `pokemon-info` inicializado
 	@Input() pokemon: Pokemon = {
 		id: 0,
 		name: '',
@@ -33,33 +36,20 @@ export class ChartStatsComponent implements OnChanges {
 		description: ''
 	};
 
+	constructor() {}
 
-	// pokemon: Pokemon = {
-	// 	id: 0,
-	// 	name: '',
-	// 	abilityId: [],
-	// 	type: [],
-	// 	weakness: [],
-	// 	heigth: 0,
-	// 	weigth: 0,
-	// 	ps: 0,
-	// 	attack: 0,
-	// 	defense: 0,
-	// 	specialAttack: 0,
-	// 	specialDefense: 0,
-	// 	speed: 0,
-	// 	description: ''
-	// };
-
-
-
-	constructor(private pokemonService: PokemonService, private activatedRoute: ActivatedRoute, router: Router) {}
-
-	ngOnChanges(changes: SimpleChanges) {
+	// Cada vez que detecta un cambio, ejecuta lo que hay dentro
+	ngOnChanges() {
 
 		let { ps, attack, defense, specialAttack, specialDefense, speed } = this.pokemon
+		
+		// Si existe un Chart, lo destruye
+		if(this.myChart) {
+			this.myChart.destroy();
+		}
 
-		let myChart = new Chart('myChart', {
+		// Crea de nuevo el Chart actualizado con la nueva entrada
+		this.myChart= new Chart('myChart', {
 			type: 'bar',
 			data: {
 				labels: [ 'PS', 'Ataque', 'Defensa', 'AtaqueSp', 'DefensaSp', 'Speed' ],
@@ -68,12 +58,12 @@ export class ChartStatsComponent implements OnChanges {
 						label: 'Puntos base',
 						data: [ ps, attack, defense, specialAttack, specialDefense, speed ],
 						backgroundColor: [
-							'rgba(255, 99, 132, 0.2)',
-							'rgba(54, 162, 235, 0.2)',
-							'rgba(255, 206, 86, 0.2)',
-							'rgba(75, 192, 192, 0.2)',
-							'rgba(153, 102, 255, 0.2)',
-							'rgba(255, 159, 64, 0.2)'
+							'rgba(255, 99, 132, 0.5)',
+							'rgba(54, 162, 235, 0.5)',
+							'rgba(255, 206, 86, 0.5)',
+							'rgba(75, 192, 192, 0.5)',
+							'rgba(153, 102, 255, 0.5)',
+							'rgba(255, 159, 64, 0.5)'
 						],
 						borderColor: [
 							'rgba(255, 99, 132, 1)',
@@ -91,17 +81,35 @@ export class ChartStatsComponent implements OnChanges {
 				scales: {
 					y: {
 						beginAtZero: true,
-						max: 255
+						max: 255,
+						grid: {
+							display: false
+						}
+					},
+					x: {
+						grid: {
+							display: false
+						}
 					}
 				}
 			}
 		});
 	}
 
-	
+	// Funciones show
+    showTotalPoints() {
+        this.displayTotalPoints = true
+    }
 
+	showAverage() {
+        this.displayAverage = true
+    }
 
-	
+	showTypicalDeviation() {
+        this.displayTypicalDeviation = true
+    }
+
+	// Devuelve el total de estadísticas de combate del pokémon
 	totalStatPoints(): number {
 		var totalStatPoints: number = 0
 		let { ps, attack, defense, specialAttack, specialDefense, speed } = this.pokemon;
@@ -109,6 +117,7 @@ export class ChartStatsComponent implements OnChanges {
 		return totalStatPoints
 	}
 
+	// Devuelve la media de las estadísticas del pokémon
 	averagePoints(): number {
 		let { ps, attack, defense, specialAttack, specialDefense, speed } = this.pokemon;
 		var media = (ps + attack + defense + specialAttack + specialDefense + speed) / 6
@@ -131,16 +140,4 @@ export class ChartStatsComponent implements OnChanges {
 		) / 6)
 		return typicalDeviation
 	}
-
-    showTotalPoints() {
-        this.displayTotalPoints = true
-    }
-
-	showAverage() {
-        this.displayAverage = true
-    }
-
-	showTypicalDeviation() {
-        this.displayTypicalDeviation = true
-    }
 }

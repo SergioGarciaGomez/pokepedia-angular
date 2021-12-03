@@ -1020,6 +1020,23 @@
         "image": "060.png"
     },
     {
+        "id": 76,
+        "name": "Golem",
+        "abilityId": [69, 5],
+        "type" : ["Roca", "Tierra"],
+        "weakness": ["Acero", "Lucha", "Agua", "Hielo", "Planta", "Tierra"],
+        "height": 1.4,
+        "weight": 300,
+        "ps": 80,
+        "attack": 120,
+        "defense": 130,
+        "specialAttack": 55,
+        "specialDefense": 65,
+        "speed": 45,
+        "description": "Nada más mudar la piel, su cuerpo se vuelve blando y blanquecino, pero se endurece al poco tiempo de entrar en contacto con el aire.",
+        "image": "076.png"
+    },
+    {
         "id": 81,
         "name": "Magnemite",
         "abilityId": [5, 42],
@@ -1035,6 +1052,23 @@
         "speed": 45,
         "description": "A veces se desploman al suelo tras agotar su suministro eléctrico interno, pero basta una pequeña batería para reanimarlos.",
         "image": "081.png"
+    },
+    {
+        "id": 94,
+        "name": "Gengar",
+        "abilityId": [130],
+        "type" : ["Fantasma", "Veneno"],
+        "weakness": ["Fantasma", "Siniestro", "Psíquico", "Tierra"],
+        "height": 1.5,
+        "weight": 40.5,
+        "ps": 60,
+        "attack": 65,
+        "defense": 60,
+        "specialAttack": 130,
+        "specialDefense": 75,
+        "speed": 110,
+        "description": "Las noches de luna llena, a este Pokémon le gusta imitar las sombras de la gente y burlarse de sus miedos.",
+        "image": "094.png"
     },
     {
         "id": 113,

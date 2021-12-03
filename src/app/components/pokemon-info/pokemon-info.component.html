@@ -29,17 +29,15 @@
     <!-- Resto de info de la pantalla -->
     <div id="pokemonInfo">
 
-        <p id="name">{{ pokemon.name }} <span>N.º{{ formatId(pokemon.id) }}</span> </p>
+        <div class="name">{{ pokemon.name }} <span>N.º{{ formatId(pokemon.id) }}</span> </div>
     
         <div id="grid2col">
             <div class="column" id="imageAndStats">
-                <img  src="../../../assets/images/pokemons/{{pokemon.image}}">
-                <app-chart-stats
-                [pokemon]="pokemon">
-                </app-chart-stats>
+                <img height="500px" src="../../../assets/images/pokemons/{{pokemon.image}}">
+                <!-- Llamada al componente pasándole el objeto `pokemon`-->
+                <app-chart-stats [pokemon]="pokemon"></app-chart-stats>
             </div>
             <div class="column" id="descriptionAndInfo">
-                <div>{{pokemon | json}}</div>
                 <div id="description">{{ pokemon.description }}</div>
             </div>
         </div>
