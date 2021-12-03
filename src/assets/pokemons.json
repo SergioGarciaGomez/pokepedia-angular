@@ -1103,5 +1103,22 @@
         "speed": 80,
         "description": "Un Pokémon bondadoso y compasivo al que le resulta imposible dar la espalda a Pokémon o humanos que se encuentren a la deriva.",
         "image": "149.png"
+    },
+    {
+        "id": 493,
+        "name": "Arceus",
+        "abilityId": [168],
+        "type" : ["Normal"],
+        "weakness": ["Lucha"],
+        "height": 3.2,
+        "weight": 320,
+        "ps": 120,
+        "attack": 120,
+        "defense": 120,
+        "specialAttack": 120,
+        "specialDefense": 120,
+        "speed": 120,
+        "description": "Según la mitología de Sinnoh, Arceus surgió de un huevo y después creó todo el mundo.",
+        "image": "493.png"
     }
 ]

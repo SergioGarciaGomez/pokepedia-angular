@@ -52,7 +52,7 @@ export class ChartStatsComponent implements OnChanges {
 		this.myChart= new Chart('myChart', {
 			type: 'bar',
 			data: {
-				labels: [ 'PS', 'Ataque', 'Defensa', 'AtaqueSp', 'DefensaSp', 'Speed' ],
+				labels: [ 'PS', 'Ataque', 'Defensa', 'Ataque Especial', 'Defensa Especial', 'Speed' ],
 				datasets: [
 					{
 						label: 'Puntos base',
@@ -78,15 +78,34 @@ export class ChartStatsComponent implements OnChanges {
 				]
 			},
 			options: {
+
+				plugins : {
+					legend: {
+						display: false
+					}
+				},
+				
 				scales: {
 					y: {
 						beginAtZero: true,
+						ticks: {
+							color: "#fff",
+							font: {
+								size: 14
+							}
+						},
 						max: 255,
 						grid: {
 							display: false
 						}
 					},
 					x: {
+						ticks: {
+							color: "#fff",
+							font: {
+								size: 12
+							}
+						},
 						grid: {
 							display: false
 						}
