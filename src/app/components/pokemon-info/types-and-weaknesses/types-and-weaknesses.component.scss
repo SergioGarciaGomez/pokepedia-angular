@@ -1,0 +1,21 @@
+#container {
+    background-color: rgb(47, 47, 47);
+    border-radius: 10px;
+
+    #typesContainer {
+
+        margin: 10px;
+
+        .types {
+            display: flex;
+            flex-wrap: wrap;
+
+            .type {
+                margin: 10px;
+                padding: 10px 30px;
+                background-color: red;
+            }
+        }
+    }
+
+}

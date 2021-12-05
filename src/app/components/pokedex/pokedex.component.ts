@@ -15,7 +15,6 @@ import { GeneralService } from 'src/app/services/general.service';
 export class PokedexComponent implements OnInit {
 
 	pokemons: Pokemon[] = [];
-	abilities: Ability[] = [];
 	items: MenuItem[] = [];
 
 	constructor(public pokemonService: PokemonService, public abilityService: AbilityService, 
@@ -24,10 +23,7 @@ export class PokedexComponent implements OnInit {
 	async ngOnInit() {
 
 		// RECUPERA LOS POKEMONS DEL SERVICIO Y LOS GUARDA EN EL COMPONENTE
-		this.pokemons = await this.pokemonService.getPokemonsFromJson();
-
-		// RECUPERA LAS HABILIDADES DEL SERVICIO Y LOS GUARDA EN EL COMPONENTE
-		this.abilities = await this.abilityService.getAbilitiesFromJson();
+		this.pokemons = await this.pokemonService.getPokemonsFromJson();        
 
 		this.items = [
 			{

@@ -4,9 +4,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { Pokemon } from '../interfaces/pokemon';
-import { Router } from '@angular/router';
 
 import { Chart, registerables } from 'chart.js';
+import { AbilityService } from './ability.service';
 // Necesario para que el chart.js funcione
 Chart.register(...registerables);
 
@@ -17,7 +17,7 @@ export class PokemonService {
 
   pokemons: Pokemon[] = []
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private abilityService: AbilityService) {}
 
   // PROMESA QUE ESPERA A LEER EL JSON Y METERLO EN LA VARIABLE POKEMON
   async getPokemonsFromJson() {

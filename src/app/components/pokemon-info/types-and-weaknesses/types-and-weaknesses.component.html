@@ -1,0 +1,20 @@
+<div id="container">
+
+    <div id="typesContainer">
+        Tipo <br>
+        <div class="types">
+            <div class="type" *ngFor="let t of pokemon.type">
+                {{t}}
+            </div>
+        </div>
+        
+    </div>
+    <div id="weaknessesContainer">
+        Debilidad <br>
+        <div class="weaknesses">
+            <div class="weakness" *ngFor="let w of pokemon.weakness">
+                {{w}}
+            </div>
+        </div>
+    </div>
+</div>

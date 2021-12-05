@@ -3,6 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Pokemon } from 'src/app/interfaces/pokemon';
 import { PokemonService } from 'src/app/services/pokemon.service';
 import { GeneralService } from 'src/app/services/general.service';
+import { AbilityService } from 'src/app/services/ability.service';
+import { Ability } from 'src/app/interfaces/ability';
 
 @Component({
   selector: 'app-pokemon-info',
@@ -17,8 +19,8 @@ export class PokemonInfoComponent implements OnInit {
     abilityId: [],
     type: [],
     weakness: [],
-    heigth: 0,
-    weigth: 0,
+    height: 0,
+    weight: 0,
     ps: 0,
     attack: 0,
     defense: 0,
@@ -34,8 +36,8 @@ export class PokemonInfoComponent implements OnInit {
     abilityId: [],
     type: [],
     weakness: [],
-    heigth: 0,
-    weigth: 0,
+    height: 0,
+    weight: 0,
     ps: 0,
     attack: 0,
     defense: 0,
@@ -51,8 +53,8 @@ export class PokemonInfoComponent implements OnInit {
     abilityId: [],
     type: [],
     weakness: [],
-    heigth: 0,
-    weigth: 0,
+    height: 0,
+    weight: 0,
     ps: 0,
     attack: 0,
     defense: 0,
@@ -68,8 +70,8 @@ export class PokemonInfoComponent implements OnInit {
     abilityId: [],
     type: [],
     weakness: [],
-    heigth: 0,
-    weigth: 0,
+    height: 0,
+    weight: 0,
     ps: 0,
     attack: 0,
     defense: 0,
@@ -85,8 +87,8 @@ export class PokemonInfoComponent implements OnInit {
     abilityId: [],
     type: [],
     weakness: [],
-    heigth: 0,
-    weigth: 0,
+    height: 0,
+    weight: 0,
     ps: 0,
     attack: 0,
     defense: 0,
@@ -96,8 +98,11 @@ export class PokemonInfoComponent implements OnInit {
     description: ''
   }
 
+  abilities: Ability[] = []
+
   constructor(
     public pokemonService: PokemonService,
+    private abilityService: AbilityService,
     private activatedRoute: ActivatedRoute,
     private router: Router,
     public generalService: GeneralService
@@ -109,8 +114,6 @@ export class PokemonInfoComponent implements OnInit {
     // EN INICIO, ESPERA A CARGAR EL ARRAY. PARA POR EJEMPLO CUANDO SE ENTRA DIRECTAMENTE DESDE UN ENLACE A
     // ID/5, O CUANDO SE RECARGA LA PÁGINA Y SIGA MOSTRANDO EL CONTENIDO.
     await this.pokemonService.getPokemonsFromJson();
-
-
 
     // RECIBE EL ID DEL POKÉMON CLICKADO Y HACE UN GETPOKEMON(ID) PARA RECIBIRLO
     const id = this.activatedRoute.snapshot.paramMap.get('id');

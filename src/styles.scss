@@ -30,7 +30,11 @@ app-root {
   overflow: auto;
 }
 
-app-pokedex, app-pokemon-info, app-habilidades {
+app-pokedex, 
+app-pokemon-info, 
+app-habilidades, 
+app-chart-stats,
+app-data-and-description {
   width: 100%;
   height: 100%;
   overflow: auto;
@@ -46,7 +50,7 @@ img {
   width: 100%;
 }
 
-// Exclamación
+// Interrogación
 .pi.pi-question {
   font-weight: bold;
 }

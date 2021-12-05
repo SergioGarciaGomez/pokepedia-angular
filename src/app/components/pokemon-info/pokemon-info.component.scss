@@ -12,7 +12,7 @@
     padding-bottom: 3rem;
 
     // Div con los pokémon anterior y siguiente
-    #AnteriorSiguiente {
+    #anteriorSiguiente {
         display: flex;
         justify-content: center;
         cursor: pointer;
@@ -79,17 +79,13 @@
 
             img {
                 width: 100%;
-                margin-bottom: 40px;
+                margin-bottom: 30px;
                 border-radius: 10px;
                 background-color: rgb(230, 230, 230);
             }
 
             app-chart-stats {
                 padding-bottom: 2em;
-            }
-
-            #description {
-                font-size: 1.2rem;
             }
         }
     }

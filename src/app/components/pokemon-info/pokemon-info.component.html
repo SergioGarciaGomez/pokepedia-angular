@@ -1,6 +1,6 @@
 <div id="container">
     <!-- Botones de Anterior y siguiente de la parte superior -->
-    <div id="AnteriorSiguiente">
+    <div id="anteriorSiguiente">
         <div class="columnAnteriorSiguiente" id="anterior">
             <!-- Si el id es == 1, muestra el anterior a él, que sería el último de la lista -->
             <div *ngIf="pokemon.id === 1" (click)="goPokemonInfo(pUltimo.id)">
@@ -32,13 +32,23 @@
         <div class="name">{{ pokemon.name }} <span>N.º{{ formatId(pokemon.id) }}</span> </div>
     
         <div id="grid2col">
-            <div class="column" id="imageAndStats">
+
+            <div id="imageAndChart" class="column">
                 <img height="500px" src="../../../assets/images/pokemons/{{pokemon.image}}">
                 <!-- Llamada al componente pasándole el objeto `pokemon`-->
                 <app-chart-stats [pokemon]="pokemon"></app-chart-stats>
             </div>
-            <div class="column" id="descriptionAndInfo">
-                <div id="description">{{ pokemon.description }}</div>
+
+            <div id="generalData" class="column">
+
+                <div id="descriptionAndData">
+                    <!-- Llamada al componente pasándole el objeto `pokemon`-->
+                    <app-data-and-description [pokemon]="pokemon"></app-data-and-description>
+                </div>
+                
+                <div id="typesAndWeaknesses">
+                    <app-types-and-weaknesses [pokemon]="pokemon"></app-types-and-weaknesses>
+                </div>
             </div>
         </div>
     </div>

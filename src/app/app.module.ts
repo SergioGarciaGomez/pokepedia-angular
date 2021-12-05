@@ -13,6 +13,8 @@ import { PokedexComponent } from './components/pokedex/pokedex.component';
 import { HabilidadesComponent } from './components/habilidades/habilidades.component';
 import { PokemonInfoComponent } from './components/pokemon-info/pokemon-info.component';
 import { ChartStatsComponent } from './components/pokemon-info/chart-stats/chart-stats.component';
+import { DataAndDescriptionComponent } from './components/pokemon-info/data-and-description/data-and-description.component';
+import { TypesAndWeaknessesComponent } from './components/pokemon-info/types-and-weaknesses/types-and-weaknesses.component';
 
 // IMPORTS DE PRIMENG
 import { PanelMenuModule } from 'primeng/panelmenu';
@@ -26,7 +28,9 @@ import { DialogModule } from 'primeng/dialog';
     PokedexComponent,
     PokemonInfoComponent,
     ChartStatsComponent,
-    HabilidadesComponent
+    HabilidadesComponent,
+    DataAndDescriptionComponent,
+    TypesAndWeaknessesComponent
   ],
   imports: [
     BrowserModule,
