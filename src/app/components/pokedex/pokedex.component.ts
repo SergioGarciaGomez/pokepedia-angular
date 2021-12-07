@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Ability } from 'src/app/interfaces/ability';
 import { Pokemon } from 'src/app/interfaces/pokemon';
 import { AbilityService } from 'src/app/services/ability.service';
 import { PokemonService } from 'src/app/services/pokemon.service';
-import { MenuItem, PrimeIcons } from 'primeng/api';
 import { GeneralService } from 'src/app/services/general.service';
+
+// PrimeNg
+import { MenuItem, PrimeIcons } from 'primeng/api';
 
 @Component({
 	selector: 'app-pokedex',
@@ -22,9 +23,10 @@ export class PokedexComponent implements OnInit {
 
 	async ngOnInit() {
 
-		// RECUPERA LOS POKEMONS DEL SERVICIO Y LOS GUARDA EN EL COMPONENTE
+		// RECUPERA LOS POKEMONS DEL SERVICIO Y LOS GUARDA EN EL ARRAY POKEMONS
 		this.pokemons = await this.pokemonService.getPokemonsFromJson();        
 
+		// Menú desplegable con filtros para las listas de Pokémons
 		this.items = [
 			{
 				label: 'Ordenar por...',
@@ -55,27 +57,33 @@ export class PokedexComponent implements OnInit {
 		];
 	}
 
-	public goPokemonInfo(id: number) {
+	// Navega al Pokémon clickado en función de su ID, si el ID es undefined, simplemente navega a /pokedex
+	goPokemonInfo(id: number) {
 		this.router.navigateByUrl(`/pokedex${id != undefined ? '/' + id : ''}`);
 	}
 
+	// Navega a un Pokémon aleatorio, de entre todos los registrados
 	goToRandomPokemon() {
-		let id = Math.floor(Math.random() * this.pokemonService.pokemons.length + 1);
+		const id = this.pokemonService.getRandomId() 
 		this.router.navigateByUrl(`/pokedex${id != undefined ? '/' + id : ''}`);
 	}
 
+	// Filtro por id ascendente
 	ascIdFilter() {
 		this.pokemonService.ascIdFilter();
 	}
 
+	// Filtro por id descendente
 	descIdFilter() {
 		this.pokemonService.descIdFilter();
 	}
 
+	// Filtro por nombre ascendente
 	ascNameFilter() {
 		this.pokemonService.ascNameFilter();
 	}
 
+	// Filtro por nombre descendente
 	descNameFilter() {
 		this.pokemonService.descNameFilter();
 	}

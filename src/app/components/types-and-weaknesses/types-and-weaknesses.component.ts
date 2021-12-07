@@ -10,6 +10,7 @@ import { AbilityService } from 'src/app/services/ability.service';
 })
 export class TypesAndWeaknessesComponent implements OnInit {
 
+// Pokémon que estamos visualizando pasado desde el padre `pokemon-info`
 @Input() pokemon: Pokemon = {
   id: 0,
   name: '',
@@ -27,10 +28,7 @@ export class TypesAndWeaknessesComponent implements OnInit {
   description: ''
 }
 
+  constructor() {}
 
-  constructor() { }
-
-  async ngOnInit() {
-
-  }
+  async ngOnInit() {}
 }

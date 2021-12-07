@@ -1,8 +1,7 @@
-import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Ability } from 'src/app/interfaces/ability';
-import { Pokemon } from 'src/app/interfaces/pokemon';
 import { AbilityService } from 'src/app/services/ability.service';
-import { PokemonService } from 'src/app/services/pokemon.service';
+import { Pokemon } from 'src/app/interfaces/pokemon';
 
 @Component({
   selector: 'app-data-and-description',
@@ -11,9 +10,11 @@ import { PokemonService } from 'src/app/services/pokemon.service';
 })
 export class DataAndDescriptionComponent implements OnInit {
 
+  // Booleans para mantener ventana emergente hidden y activarla con algún evento
   displayAbilityDescription1: boolean = false;
   displayAbilityDescription2: boolean = false;
 
+  // Objeto Pokémon recibido de la clase padre `pokemon-info` inicializado
   @Input() pokemon: Pokemon = {
     id: 0,
     name: '',
@@ -31,12 +32,14 @@ export class DataAndDescriptionComponent implements OnInit {
     description: ''
   }
 
+  // Array de habilidades vacío, listo para leer las habilidades del JSON
   abilities: Ability[] = [];
 
 
   constructor(public abilityService: AbilityService) { }
 
   async ngOnInit() {
+    // En inicio, espera a cargar el aarray abilities del JSON
     this.abilities = await this.abilityService.getAbilitiesFromJson()
   }
 
@@ -44,6 +47,7 @@ export class DataAndDescriptionComponent implements OnInit {
     return this.abilityService.getAbilitiesFromPokemon(pokemon)
   }
 
+  // Funciones show para mostrar la ventana emergente en algún evento
   showAbilityDescription1() {
     this.displayAbilityDescription1 = true
   }

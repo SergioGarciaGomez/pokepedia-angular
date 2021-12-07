@@ -38,12 +38,12 @@ export class ChartStatsComponent implements OnChanges {
 
 	constructor() {}
 
-	// Cada vez que detecta un cambio, ejecuta lo que hay dentro
+	// Cada vez que detecta un cambio, ejecuta lo que hay dentro (no es necesario un SimpleChanges)
 	ngOnChanges() {
 
-		let { ps, attack, defense, specialAttack, specialDefense, speed } = this.pokemon
+		const { ps, attack, defense, specialAttack, specialDefense, speed } = this.pokemon
 		
-		// Si existe un Chart, lo destruye
+		// Si existe un Chart, lo destruye, ya que no pueden existir más de un Chart a la vez
 		if(this.myChart) {
 			this.myChart.destroy();
 		}
@@ -52,7 +52,7 @@ export class ChartStatsComponent implements OnChanges {
 		this.myChart= new Chart('myChart', {
 			type: 'bar',
 			data: {
-				labels: [ 'PS', 'Ataque', 'Defensa', 'Ataque Especial', 'Defensa Especial', 'Speed' ],
+				labels: [ 'PS', 'Ataque', 'Defensa', 'Ataque Especial', 'Defensa Especial', 'Velocidad' ],
 				datasets: [
 					{
 						label: 'Puntos base',
@@ -115,7 +115,7 @@ export class ChartStatsComponent implements OnChanges {
 		});
 	}
 
-	// Funciones show
+	// Funciones show, para activar el evento de la ventana emergente
     showTotalPoints() {
         this.displayTotalPoints = true
     }
@@ -130,33 +130,31 @@ export class ChartStatsComponent implements OnChanges {
 
 	// Devuelve el total de estadísticas de combate del pokémon
 	totalStatPoints(): number {
-		var totalStatPoints: number = 0
-		let { ps, attack, defense, specialAttack, specialDefense, speed } = this.pokemon;
-		totalStatPoints = ps + attack + defense + specialAttack + specialDefense + speed
-		return totalStatPoints
+		const { ps, attack, defense, specialAttack, specialDefense, speed } = this.pokemon;
+		return ps + attack + defense + specialAttack + specialDefense + speed
 	}
 
 	// Devuelve la media de las estadísticas del pokémon
 	averagePoints(): number {
-		let { ps, attack, defense, specialAttack, specialDefense, speed } = this.pokemon;
-		var media = (ps + attack + defense + specialAttack + specialDefense + speed) / 6
-		return media
+		const { ps, attack, defense, specialAttack, specialDefense, speed } = this.pokemon;
+		return (ps + attack + defense + specialAttack + specialDefense + speed) / 6
 	}
 
-	// La desviación típica se calcula elevando al cuadrado el dato - media (esto con todos los datos)
-	// y luego dividiendo entre el número de datos totales, y finalmente la raíz cuadrada del resultado
+	/*	La desviación típica se calcula cogiendo el datoNº1 y restándole la media, 
+		y el resultado se eleva al cuadrado(esto con todos los datos).
+		Después se suman todos los resultados y se dividen entre el número de datos totales.
+		Finalmente se hace la raíz cuadrada del resultado.
+	*/
 	typicalDeviation(): number {
 		const { ps, attack, defense, specialAttack, specialDefense, speed } = this.pokemon;
-		// Media, que es necesaria para la desviación
-		const i: number = this.averagePoints()
-		const typicalDeviation = Math.sqrt(
-			(Math.pow(ps - i, 2) + // 91-100 * 2 = -18
-			Math.pow(attack - i, 2) + //134 - 100 * 2 = 68
-			Math.pow(defense - i, 2) + //95 - 100 * 2 = -10
-			Math.pow(specialAttack - i, 2) + //100 - 100 * 2 = 0
-			Math.pow(specialDefense - i, 2) +  // 100 - 100 * 2 = 0
-			Math.pow(speed - i, 2) // 80 - 100 * 2 = -40
-		) / 6)
-		return typicalDeviation
+		const i: number = this.averagePoints() // Sacamos la media, que es necesaria para la desviación típica
+		return Math.sqrt(
+			(	Math.pow(ps - i, 2) + // Dato 1 - media ^2
+				Math.pow(attack - i, 2) + 
+				Math.pow(defense - i, 2) + 
+				Math.pow(specialAttack - i, 2) + 
+				Math.pow(specialDefense - i, 2) +  
+				Math.pow(speed - i, 2)
+		) 	/ 6)
 	}
 }

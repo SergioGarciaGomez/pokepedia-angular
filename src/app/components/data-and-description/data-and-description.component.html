@@ -14,24 +14,21 @@
         
         <div id="abilities" class="text">
             
-            <!-- Devuelve un array con las habilidades del pokémon -->
             <span>Habilidades<br></span>
+            <!-- Devuelve un array con las habilidades del pokémon este en concreto -->
             <div *ngFor="let a of getAbilitiesFromPokemon(pokemon)">
+                <!-- Ventanas emergentes para mostrar la info de habilidad en función de si es la primera, o la segunda habilidad -->
                 <div *ngIf="getAbilitiesFromPokemon(pokemon)[0].abilityId === a.abilityId">
-
                     <p-dialog header="Información sobre habilidad" [(visible)]="displayAbilityDescription1" [style]="{width: '20vw'}">
                         <span id="panelSpan">{{a.abilityName}}</span> <br><br> {{a.abilityDescription}}
                     </p-dialog>
-
                     {{ a.abilityName }} <i class="pi pi-info-circle" (click)="showAbilityDescription1()"></i>
                 </div>
 
                 <div *ngIf="getAbilitiesFromPokemon(pokemon)[0].abilityId != a.abilityId">
-
                     <p-dialog header="Información sobre habilidad" [(visible)]="displayAbilityDescription2" [style]="{width: '20vw'}">
                         <span id="panelSpan">{{a.abilityName}}</span> <br><br> {{a.abilityDescription}}
                     </p-dialog>
-
                     {{ a.abilityName }} <i class="pi pi-info-circle" (click)="showAbilityDescription2()"></i>
                 </div>
             </div>

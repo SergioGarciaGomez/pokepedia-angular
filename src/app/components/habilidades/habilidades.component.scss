@@ -1,33 +1,63 @@
+@font-face {
+    font-family: flexo;
+    src: url("../../../assets/fonts/Flexo-Medium.ttf");
+}
+
 #container {
-    width: 85%;
+    width: 70%;
     margin: auto;
-    padding: 3rem;
-    background-color: gray;
+    padding-bottom: 3rem;
+    font-family: flexo;
+    background-color: rgb(82, 82, 82);
 
-
-    #abilitiesTable {
-        width: 70%;
-        margin: auto;
-        background-color: white;
-        font-size: 1.1rem;
-        align-content: center;
     
-        table {
-            border-collapse: collapse;
+    .title {
+        width: 100%;
+        margin: 0;
+        padding: 20px;
+        font-size: 3rem;
+        background-color: #fff;
+        color: rgb(92, 92, 92);
+    }
 
-            .rowUp {
-                background-color: lightseagreen;
-                color: white;
-            }
+    .infoContainer {
+
+        width: 85%;
+        margin: auto;
+        margin-top: 30px;
+        background-color: #fff;
+        border-radius: 10px;
+
+        .abilityDescription {
+            margin: 10px;
+            padding: 20px 10px 10px 10px;
+            font-size: 1.2rem;
+            text-align: justify;
+        }
+
+        .abilitiesTable {
+            width: 100%;
+            padding: 20px;
+            font-size: 1.1rem;
+            align-content: center;
         
-            .rowDown {
-                padding: 20px;
-                font-family: Arial, Helvetica, sans-serif;
-
-                .nameColumn {
-                    text-align: center;
+            table {
+                border-collapse: collapse;
+    
+                .rowUp {
+                    background-color: lightseagreen;
+                    color: white;
                 }
-            }    
+            
+                .rowDown {
+                    padding: 20px;
+                    font-family: Arial, Helvetica, sans-serif;
+    
+                    .nameColumn {
+                        text-align: center;
+                    }
+                }    
+            }
         }
     }
 }

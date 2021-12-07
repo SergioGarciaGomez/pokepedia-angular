@@ -7,6 +7,7 @@ export class GeneralService {
 
   constructor() { }
 
+  // Formatea un ID con formato 001, 010, 100, siempre con 3 dígitos sea cual sea el ID
   public formatId(id: number): string {
 
     var idFormatted: string = "";

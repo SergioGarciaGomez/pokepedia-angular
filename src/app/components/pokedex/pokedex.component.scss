@@ -76,70 +76,17 @@
                     font-size: 1.5em;
                 }
 
-                // Caja general de las habilidades del Pokémon
-                #abilities {
+                // Caja general de los tipos del Pokémon
+                #types {
                     font-family: Arial;
                     font-weight: bold;
 
-                     // Cajita única de la habilidad
+                     // Cajita única del tipo del Pokémon 
                     .typeBox {
                         padding: 2px;
                         margin: 0 10px 10px 10px;
-                        color: #fff;
                         text-align: center;
                         border-radius: 7px;
-                    }
-
-                    // COLORES EN FUNCIÓN DEL TIPO DEL POKÉMON
-                    #grassType { background-color: rgb(48, 192, 55); }
-
-                    #fireType { background-color: rgb(255, 115, 0); }
-
-                    #waterType { background-color: rgb(48, 162, 255); }
-
-                    #bugType { background-color: rgb(0, 85, 21); }
-
-                    #fightingType { background-color: rgb(54, 29, 0); }
-
-                    #normalType { background-color: rgb(139, 139, 139); }
-
-                    #ghostType { background-color: rgb(94, 0, 138); }
-
-                    #steelType { background-color: rgb(46, 46, 46); }
-
-                    #psychicType { background-color: rgb(167, 0, 144); }
-
-                    #fairyType { background-color: rgb(255, 161, 227); }
-
-                    #dragonType { background: linear-gradient(rgb(0, 92, 179) 50%, #ff4b4b 50%); }
-
-                    #flyingType { background: linear-gradient(rgb(8, 135, 255) 50%, rgb(139, 139, 139) 50%) }
-
-                    #poisonType { background-color: rgb(154, 45, 255);}
-
-                    #electricType {
-                        background-color: rgb(255, 238, 0);
-                        color: black;
-                    }
-
-                    #groundType {
-                        background: linear-gradient(rgb(229, 255, 0) 50%, #ffd573 50%);
-                        color: black;
-                    }
-
-                    #darkType {
-                        background-color: rgb(255, 238, 0);
-                        color: black;
-                    }
-
-                    #iceType {
-                        background-color: rgb(0, 217, 255);
-                        color: black;
-                    }
-
-                    #rockType {
-                        background-color: rgb(0, 217, 255);
-                        color: black;
                     }
                 }
             }

@@ -121,4 +121,14 @@ export class PokemonService {
     
     return this.getPokemon(newId)
   }
+
+  // Obtiene los ID de los pokemons para seleccionar uno aleatoriamente, ya que si lo hiciera directamente con
+  // el .lenght del Array principal, si el Array mide 50, y meto el Pokémon número 400, solo saldrán IDs entre
+  // 1 y 50, no entre los IDs que hay.
+  public getRandomId() {
+    // Obtengo un array de los id
+    let arrayId = this.pokemons.map(array => array.id)
+    // Posición aleatoria en el array de Id's
+    return arrayId[Math.floor(Math.random() *arrayId.length)]
+  }
 }

@@ -58,6 +58,13 @@ Pokepedia vAngular guarda información sobre los Pokémon que hay, las habilidad
     * Añadida `Desviación Típica` al `Chart.js`.
     * Añadidos 3 iconos de Info al lado de `Puntos Totales`, `Media` y `Desviación Típica`, que al pulsarlos abre una ventana flotante emergente con información sobre ese atributo.
     * Creado un `GeneralService` para funciones de uso general, como `formatId()`, que se usa tanto en `pokedex` como en `pokemon-info`.
+* v3.0
+    * Añadidos estilos generales para las cajas de tipos.
+    * Añadido `favicon.ico` propio.
+    * Estilo del componente `Habilidades` terminado.
+    * Función `goToRandomPokemon()` modificada. Antes te podía enviar a un pokémon que no existía aún, ya que se usaba `array.lenght`, y los ID de los pokémon no tenían porqué coincidir con el `.lenght`.
+    * Arreglado un `bug` que al cambiar al pokémon anterior o siguiente, no se actualizaba el `Chart`
+    * Añadidos y terminados dos nuevos componentes, `types-and-weaknesses`, que guarda los tipos y las debilidades del Pokémon que estamos visualizando, y `data-and-description`, que guarda la descripción, el peso, altura, y habilidades del Pokémon que estamos visualizando.
 ## Para más ayuda
 
 Use `ng help` en la terminal o revise la página [Angular CLI Overview and Command Reference](https://angular.io/cli).

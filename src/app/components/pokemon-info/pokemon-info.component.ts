@@ -3,7 +3,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Pokemon } from 'src/app/interfaces/pokemon';
 import { PokemonService } from 'src/app/services/pokemon.service';
 import { GeneralService } from 'src/app/services/general.service';
-import { AbilityService } from 'src/app/services/ability.service';
 import { Ability } from 'src/app/interfaces/ability';
 
 @Component({
@@ -13,6 +12,19 @@ import { Ability } from 'src/app/interfaces/ability';
 })
 export class PokemonInfoComponent implements OnInit {
 
+  /* Diferentes pokemons para mostrar luego en el HTML.
+
+  pokemon es, el pokémon que estamos visualizando.
+  pAnterior es, el ID anterior a el pokémon que estamos visualizando(no tiene porqué ser la posición anterior en el array)
+
+  pSiguiente es, el ID siguiente a el pokémon que estamos visualizando(no tiene porqué ser la posición siguiente en el array)
+
+  pPrimero es, el primer pokémon del array, osea, el ID más pequeño (no tiene porqué ser el que tenga ID 1)
+
+  pUltimo es, el último pokémon del array, osea, el ID más grande (no tiene porqué ser igual que el array.lenght)
+
+  Por todas esas limitaciones, he creado una función y variable para cada uno de ellos.
+  */
   pokemon: Pokemon = {
     id: 0,
     name: '',
@@ -102,7 +114,6 @@ export class PokemonInfoComponent implements OnInit {
 
   constructor(
     public pokemonService: PokemonService,
-    private abilityService: AbilityService,
     private activatedRoute: ActivatedRoute,
     private router: Router,
     public generalService: GeneralService
@@ -118,6 +129,7 @@ export class PokemonInfoComponent implements OnInit {
     // RECIBE EL ID DEL POKÉMON CLICKADO Y HACE UN GETPOKEMON(ID) PARA RECIBIRLO
     const id = this.activatedRoute.snapshot.paramMap.get('id');
     if (id != null) {
+      // Carga los diferentes pokémons
       this.pokemon = this.pokemonService.getPokemon(+id);
       this.pAnterior = this.pokemonService.getPreviousPokemon(+id);
       this.pSiguiente = this.pokemonService.getNextPokemon(+id);
@@ -130,6 +142,8 @@ export class PokemonInfoComponent implements OnInit {
     return this.generalService.formatId(id)
   }
 
+  // Navega al Pokémon clickado en función de su ID, si el ID es undefined, simplemente navega a /pokedex
+  // y refresca el ngOnInit
   goPokemonInfo(id: number) {
     this.router.navigateByUrl(`/pokedex/${id != null ? id : ''}`);
     this.ngOnInit()

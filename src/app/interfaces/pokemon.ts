@@ -1,3 +1,4 @@
+// Interfaz Pokemon, para crear los diferentes Pokémons que existen
 export interface Pokemon {
     id: number;
     name: string;

@@ -16,12 +16,12 @@ export class HabilidadesComponent implements OnInit {
 
 	async ngOnInit() {
 
-		// RECUPERA LAS HABILIDADES DEL SERVICIO Y LOS GUARDA EN EL COMPONENTE
+		// RECUPERA LAS HABILIDADES DEL SERVICIO Y LOS GUARDA EN EL ARRAY ABILITIES
 		this.abilities = await this.abilityService.getAbilitiesFromJson();
 	}
 
 	formatId(id: number): string {
-    return this.generalService.formatId(id)
+		return this.generalService.formatId(id)
 	}
 }
 

@@ -30,14 +30,6 @@ nav {
             color: white;
         }
 
-        &.home {
-            background-color: white;
-            border-bottom: solid 5px #464646;
-            &:hover {
-                background-color: #464646;
-            }
-        }
-
         &.pokedex {
             background-color: white;
             border-bottom: solid 5px red; 

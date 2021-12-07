@@ -1,45 +1,45 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
 
 // HTTP PARA LEER JSON
 import { HttpClientModule } from '@angular/common/http';
 
 // COMPONENTES
 import { AppComponent } from './app.component';
-import { HomeComponent } from './components/home/home.component';
-import { PokedexComponent } from './components/pokedex/pokedex.component';
+import { ChartStatsComponent } from './components/chart-stats/chart-stats.component';
+import { DataAndDescriptionComponent } from './components/data-and-description/data-and-description.component';
 import { HabilidadesComponent } from './components/habilidades/habilidades.component';
+import { PokedexComponent } from './components/pokedex/pokedex.component';
 import { PokemonInfoComponent } from './components/pokemon-info/pokemon-info.component';
-import { ChartStatsComponent } from './components/pokemon-info/chart-stats/chart-stats.component';
-import { DataAndDescriptionComponent } from './components/pokemon-info/data-and-description/data-and-description.component';
-import { TypesAndWeaknessesComponent } from './components/pokemon-info/types-and-weaknesses/types-and-weaknesses.component';
+import { TypesAndWeaknessesComponent } from './components/types-and-weaknesses/types-and-weaknesses.component';
 
 // IMPORTS DE PRIMENG
-import { PanelMenuModule } from 'primeng/panelmenu';
 import { ButtonModule } from 'primeng/button';
 import { DialogModule } from 'primeng/dialog';
+import { PanelMenuModule } from 'primeng/panelmenu';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
+    ChartStatsComponent,
+    DataAndDescriptionComponent,
+    HabilidadesComponent,
     PokedexComponent,
     PokemonInfoComponent,
-    ChartStatsComponent,
-    HabilidadesComponent,
-    DataAndDescriptionComponent,
     TypesAndWeaknessesComponent
   ],
   imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
+    BrowserModule,
+    // Http
     HttpClientModule,
-    PanelMenuModule,
+    // PrimeNg
     ButtonModule,
-    DialogModule
+    DialogModule,
+    PanelMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]

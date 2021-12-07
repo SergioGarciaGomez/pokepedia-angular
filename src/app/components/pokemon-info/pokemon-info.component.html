@@ -36,14 +36,15 @@
             <div id="imageAndChart" class="column">
                 <img height="500px" src="../../../assets/images/pokemons/{{pokemon.image}}">
                 <!-- Llamada al componente pasándole el objeto `pokemon`-->
-                <app-chart-stats [pokemon]="pokemon"></app-chart-stats>
+                <app-data-and-description [pokemon]="pokemon"></app-data-and-description>
             </div>
 
             <div id="generalData" class="column">
 
                 <div id="descriptionAndData">
                     <!-- Llamada al componente pasándole el objeto `pokemon`-->
-                    <app-data-and-description [pokemon]="pokemon"></app-data-and-description>
+                    <app-chart-stats [pokemon]="pokemon"></app-chart-stats>
+                    
                 </div>
                 
                 <div id="typesAndWeaknesses">
