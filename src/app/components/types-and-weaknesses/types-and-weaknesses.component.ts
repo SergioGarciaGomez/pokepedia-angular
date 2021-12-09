@@ -1,7 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Ability } from 'src/app/interfaces/ability';
 import { Pokemon } from 'src/app/interfaces/pokemon';
-import { AbilityService } from 'src/app/services/ability.service';
 
 @Component({
   selector: 'app-types-and-weaknesses',

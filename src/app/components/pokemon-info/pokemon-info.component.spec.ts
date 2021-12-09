@@ -1,7 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { PokemonInfoComponent } from './pokemon-info.component';
-import { ChartBaseStatsComponent } from './../chart-base-stats/chart-base-stats.component'
 
 describe('PokemonInfoComponent', () => {
   let component: PokemonInfoComponent;

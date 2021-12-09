@@ -325,7 +325,7 @@
     {
         "id": 20,
         "name": "Raticate",
-        "abilityId": 1,
+        "abilityId": [50, 62],
         "type" : ["Normal"],
         "weakness": ["Lucha"],
         "height": 0.7,
